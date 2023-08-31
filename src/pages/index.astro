@@ -3,7 +3,27 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Fullstack Developer | Leopoldo Lira">
-  <main>
-    <h1 class="text-white"><a href="/about">Leopoldo Lira</a></h1>
+  <main class="w-screen h-4/5 flex justify-center items-center">
+    <div class="grid grid-cols-3 gap-10 w-4/5 h-4/5">
+        <a class="col-start-1 col-end-3" href="/about">
+          <div class=" h-full w-full bg-[#c7d1ff] rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
+            <div>
+                <img src="/imgs/leo.png" width="50" height="50"/>
+            </div>
+          </div>
+        </a>
+        <div class="h-full w-full bg-purple-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
+          <a href="/" class="text-white">Skills</a>
+        </div>
+        <div class="h-full w-full bg-purple-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
+          <a href="/" class="text-white">Experience</a>
+        </div>
+        <div class="h-full w-full bg-purple-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
+          <a href="/" class="text-white">Projects</a>
+        </div>
+        <div class="h-full w-full bg-purple-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
+          <a href="/" class="text-white">Contact</a>
+        </div>
+    </div>
   </main>
 </Layout>
