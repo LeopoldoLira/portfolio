@@ -6,10 +6,10 @@ import Layout from "../layouts/Layout.astro";
   <main class="w-screen h-4/5 flex justify-center items-center">
     <div class="grid grid-cols-3 gap-5 w-4/5 h-4/5">
         <a class="col-start-1 col-end-3" href="/about">
-          <div class="transition duration ease-in-out hover:shadow hover:shadow-white hover:bg-[#c7d1ff] h-full w-full bg-[#c7d1ff] rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
+          <div  class="transition duration ease-in-out hover:shadow hover:shadow-white hover:bg-[#c7d1ff] h-[15rem] w-full bg-[#c7d1ff] rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
             <div class="flex justify-center items-center h-full gap-10">
-                <img class="w-[25%]" src="/imgs/leo.png" width="100" height="100" alt="A photo of Leopoldo Lira"/>
-                <p class="text-white text-2xl w-3/5"><span class="italic">-Your imagination is your limit... At least that's what I believe while creating a page.</span> </br>Hey, Leo Here! 👋 Curious about myself? Let's check it out. 👀</p>
+                <img transition:name="photo" class="w-[25%]" src="/imgs/leo.png" width="100" height="100" alt="A photo of Leopoldo Lira"/>
+                <p class="text-white text-2xl w-3/5"><span class="italic">-Your imagination is your limit... At least that's what I believe while building the future.</span> </br>Hey, Leo Here! 👋 Curious about myself? Let's check it out. 👀</p>
             </div>
           </div>
         </a>
@@ -28,14 +28,14 @@ import Layout from "../layouts/Layout.astro";
           </div>
         </a>
         <a href='/'>
-          <div class="h-full w-full bg-purple-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
+          <div class="h-[15rem] w-full bg-purple-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
           <div class="flex items-center justify-center h-full">
             <h2 class="text-white text-5xl">{`<Projects />`}</h2>
           </div>
           </div>
         </a>
         <a href='/'>
-          <div class="h-full w-full bg-purple-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
+          <div class="h-[15rem] w-full bg-purple-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-30 border border-gray-100">
           <div class="flex items-center justify-center h-full">
             <h2 class="text-white text-5xl">{`<Contact />`}</h2>
           </div>
