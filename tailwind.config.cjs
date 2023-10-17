@@ -9,8 +9,13 @@ module.exports = {
 			},
 			gridTemplateRows:{
 				'layout':'20rem 20rem 20rem 20rem',
+				'smlayout':'repeat(6,20rem)'
 			}
 		},
+
+		screens:{
+			'tablet':{'max':'768px'}
+		}
 	},
 	plugins: [],
 }
