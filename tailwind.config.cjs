@@ -9,12 +9,14 @@ module.exports = {
 			},
 			gridTemplateRows:{
 				'layout':'20rem 20rem 20rem 20rem',
-				'smlayout':'repeat(6,20rem)'
+				'tabletlayout':'repeat(6,20rem)',
+				'mobilelargelayout':'repeat(6, 11.5rem)'
 			}
 		},
 
 		screens:{
-			'tablet':{'max':'768px'}
+			'tablet':{'max':'768px'},
+			'mobile-l':{'max':'425px'}
 		}
 	},
 	plugins: [],
