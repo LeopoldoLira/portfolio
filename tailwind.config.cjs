@@ -8,9 +8,9 @@ module.exports = {
 				'spin-slow':'spin 10s linear infinite'
 			},
 			gridTemplateRows:{
-				'layout':'20rem 20rem 20rem 20rem',
+				'layout':'repeat(6,17.5rem)',
 				'tabletlayout':'repeat(6,20rem)',
-				'mobilelargelayout':'repeat(6, 11.5rem)'
+				'mobilelargelayout':'repeat(11, 11.5rem)'
 			}
 		},
 
