@@ -4,103 +4,87 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 <HomeLayout title="Fullstack Developer | Leopoldo Lira">
   <main class="w-full min-h-fit flex justify-center items-center">
-    <div class="py-10 grid grid-cols-4 grid-rows-layout tablet:grid-rows-tabletlayout mobile-l:grid-rows-mobilelargelayout mobile-l:w-[85%] tablet:w-[90%] gap-5 w-[75%]">
+    <div class="py-10 grid grid-cols-4 grid-rows-layout tablet:grid-rows-tabletlayout mobile-l:grid-rows-mobilelargelayout smallLaptop:grid-rows-smallLaptop 4k:grid-rows-4k 4k:w-[80%] mobile-l:w-[85%] tablet:w-[90%] smallLaptop:w-[90%] gap-5 w-[75%]">
     
     <!-- About Container -->
-    <div id="about-container" transition:name="about-leo-photo" class="tablet:col-start-1 tablet:col-end-5 bg-black/25 col-start-1 col-end-4 row-start-1 row-end-3 mobile-l:row-end-3 w-full rounded-3xl">
-                  <div class="flex justify-center items-center h-full gap-5 px-5 tablet:pl-10 mobile-l:px-1">
-                      <p class="mobile-l:text-[1rem] text-2xl leading-9 text-white w-[75%] pl-[10rem] mobile-l:px-0 font-thin">
-                        <span class='mobile-l:text-2xl text-3xl italic font-medium'>I'm Leopoldo Lira 👋, An awesome Software Developer</span> based in Nicaragua that focuses in both Backend and Frontend, my prefered Technologies are React and Django.
-                    </p>
-                  </div>
+    <div id="about-container" class="tablet:col-start-1 tablet:col-end-5 bg-black/25 col-start-1 col-end-4 row-start-1 row-end-3 mobile-l:row-end-3 w-full rounded-3xl">
+      <div class="flex justify-center items-center flex-col h-full pl-[18rem] mobile-l:pl-0 gap-10 mobile-l:gap-5 4k:pl-[25rem]">
+        <h1 class='mobile-l:text-2xl 4k:text-[2.5rem] text-3xl italic font-medium text-white w-[90%]'>Hello 👋, I'm Leo a Software Developer with 3+ Years of experience.</h1>
+        <p class='mobile-l:text-[1rem] text-2xl 4k:text-[2rem] text-white w-[90%] mobile-l:px-0 font-thin'>Based in Nicaragua, with expertise in both Frontend And Backend using React and Django.</p>
+      </div>
     </div>
 
 
       <!-- Frotend Skills -->
-        <div class="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black via-black to-[#381209] col-start-4 col-end-5 tablet:col-start-1 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 w-full rounded-3xl ">
+        <div class="bg-black/50 col-start-4 col-end-5 tablet:col-start-1 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 w-full rounded-3xl ">
             <div class="flex items-center justify-center items-center h-full">
-                <div class="grid grid-cols-3 grid-rows-3 gap-5 mobile-l:gap-1 w-[80%]">
+                <div class="grid grid-cols-3 grid-rows-3 gap-5 mobile-l:gap-1 w-[80%] smallLaptop:gap-6 4k:gap-[3rem]">
                     <div class="flex items-center justify-center">
-                      <svg class='mobile-l:w-[25px]' width="50" height="50" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#E44D26"/>
-                        <path d="M26 5H16V29.5L24 27L26 5Z" fill="#F16529"/>
-                        <path d="M9.5 17.5L8.5 8H24L23.5 11H11.5L12 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5H9.5Z" fill="white"/>
-                      </svg>
+                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='svgs/html.svg' alt='HTML Logo' />
                     </div>
 
                     <div class="flex items-center justify-center">
-                      <svg class='mobile-l:w-[25px]' width="50" height="50" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 28L4 3H28L26 28L16 31L6 28Z" fill="#1172B8"/>
-                        <path d="M26 5H16V29.5L24 27L26 5Z" fill="#33AADD"/>
-                        <path d="M19.5 17.5H9.5L9 14L17 11.5H9L8.5 8.5H24L23.5 12L17 14.5H23L22 24L16 26L10 24L9.5 19H12.5L13 21.5L16 22.5L19 21.5L19.5 17.5Z" fill="white"/>
-                    </svg>
+                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='svgs/css.svg' alt='CSS Logo' />
                     </div>
 
                     <div class="flex items-center justify-center">
-                      <svg class='mobile-l:w-[25px]' width="50" height="50" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                        <title>file_type_js_official</title>
-                        <rect x="2" y="2" width="28" height="28" style="fill:#f5de19"/>
-                        <path d="M20.809,23.875a2.866,2.866,0,0,0,2.6,1.6c1.09,0,1.787-.545,1.787-1.3,0-.9-.716-1.222-1.916-1.747l-.658-.282c-1.9-.809-3.16-1.822-3.16-3.964,0-1.973,1.5-3.476,3.853-3.476a3.889,3.889,0,0,1,3.742,2.107L25,18.128A1.789,1.789,0,0,0,23.311,17a1.145,1.145,0,0,0-1.259,1.128c0,.789.489,1.109,1.618,1.6l.658.282c2.236.959,3.5,1.936,3.5,4.133,0,2.369-1.861,3.667-4.36,3.667a5.055,5.055,0,0,1-4.795-2.691Zm-9.295.228c.413.733.789,1.353,1.693,1.353.864,0,1.41-.338,1.41-1.653V14.856h2.631v8.982c0,2.724-1.6,3.964-3.929,3.964a4.085,4.085,0,0,1-3.947-2.4Z"/>
-                      </svg>
+                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='svgs/js.svg' alt='JavaScript Logo' />
                     </div>
                     <div class="flex items-center justify-center">
-                      <svg class='mobile-l:w-[25px]' width="50" height="50" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>file_type_jest</title><path d="M27.089,15.786a2.606,2.606,0,0,0-2.606-2.606,2.633,2.633,0,0,0-.274.014l3.58-10.558H12.576l3.575,10.549c-.052,0-.105-.005-.158-.005a2.606,2.606,0,0,0-.791,5.09,11.383,11.383,0,0,1-2.049,2.579A10.436,10.436,0,0,1,9.5,23.116a3.323,3.323,0,0,1-1.665-4.23c.077-.18.155-.362.229-.544a2.607,2.607,0,1,0-2.09-.4,20.134,20.134,0,0,0-1.889,4.787c-.354,2.135,0,4.4,1.845,5.681,4.3,2.981,8.969-1.848,13.891-3.061,1.784-.44,3.742-.369,5.313-1.279a4.45,4.45,0,0,0,2.179-3.088,4.639,4.639,0,0,0-.831-3.522,2.6,2.6,0,0,0,.606-1.671ZM18.6,15.8v-.009a2.6,2.6,0,0,0-1.256-2.23L20.188,7.8l2.85,5.814a2.6,2.6,0,0,0-1.161,2.169c0,.019,0,.038,0,.057L18.6,15.8Z" style="fill:#c63d14"/><path d="M27.726,15.786A3.247,3.247,0,0,0,25.083,12.6L28.677,2H11.689l3.6,10.621a3.241,3.241,0,0,0-1,5.918,10.865,10.865,0,0,1-1.568,1.846,9.827,9.827,0,0,1-3.16,2.03,2.656,2.656,0,0,1-1.134-3.28l.04-.093.074-.175a3.245,3.245,0,1,0-3.34-.754c-.108.231-.222.465-.339.706a14,14,0,0,0-1.4,3.8c-.465,2.8.285,5.043,2.111,6.308A5.751,5.751,0,0,0,8.934,30c2.132,0,4.289-1.071,6.4-2.119a23.672,23.672,0,0,1,4.642-1.918c.577-.142,1.171-.228,1.8-.319a9.977,9.977,0,0,0,3.68-1.028,5.09,5.09,0,0,0,2.487-3.53,5.255,5.255,0,0,0-.691-3.613,3.223,3.223,0,0,0,.475-1.688Zm-1.273,0a1.97,1.97,0,1,1-1.97-1.97,1.972,1.972,0,0,1,1.97,1.97ZM26.9,3.273l-3.174,9.36a3.2,3.2,0,0,0-.4.125l-3.135-6.4L17.046,12.72a3.2,3.2,0,0,0-.419-.114L13.464,3.273ZM15.993,13.816a1.97,1.97,0,1,1-1.97,1.97,1.972,1.972,0,0,1,1.97-1.97Zm-8.522.019A1.97,1.97,0,1,1,5.5,15.8a1.972,1.972,0,0,1,1.97-1.97Zm19.217,7.034a3.82,3.82,0,0,1-1.871,2.646,8.9,8.9,0,0,1-3.223.869c-.632.091-1.285.185-1.924.343a24.587,24.587,0,0,0-4.9,2.013c-3.164,1.571-5.9,2.928-8.472,1.143-1.887-1.308-1.8-3.728-1.58-5.054A12.82,12.82,0,0,1,6,19.376c.092-.189.182-.375.27-.559a3.215,3.215,0,0,0,.838.21,3.965,3.965,0,0,0,2.1,4.655l.245.126.259-.092a11.029,11.029,0,0,0,3.875-2.4,12.078,12.078,0,0,0,1.918-2.319,3.241,3.241,0,0,0,2.64-5.627l2.038-4.121,2.059,4.2a3.24,3.24,0,0,0,4.088,5,3.957,3.957,0,0,1,.355,2.422Z" style="fill:#fff"/></svg>
+                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='svgs/jest.svg' alt='Jest Logo' />
                     </div>
                     <div class="flex items-center justify-center">
-                      <img src="/svgs/tailwind.svg" alt="Tailwind Logo" />
+                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src="/svgs/tailwind.svg" alt="Tailwind Logo" />
                     </div>
                     <div class="flex items-center justify-center">
-                      <svg class='mobile-l:w-[25px]' transition:name="react-icon"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
-                        <path fill="#80deea" d="M24,34C11.1,34,1,29.6,1,24c0-5.6,10.1-10,23-10c12.9,0,23,4.4,23,10C47,29.6,36.9,34,24,34z M24,16	c-12.6,0-21,4.1-21,8c0,3.9,8.4,8,21,8s21-4.1,21-8C45,20.1,36.6,16,24,16z"></path><path fill="#80deea" d="M15.1,44.6c-1,0-1.8-0.2-2.6-0.7C7.6,41.1,8.9,30.2,15.3,19l0,0c3-5.2,6.7-9.6,10.3-12.4c3.9-3,7.4-3.9,9.8-2.5	c2.5,1.4,3.4,4.9,2.8,9.8c-0.6,4.6-2.6,10-5.6,15.2c-3,5.2-6.7,9.6-10.3,12.4C19.7,43.5,17.2,44.6,15.1,44.6z M32.9,5.4	c-1.6,0-3.7,0.9-6,2.7c-3.4,2.7-6.9,6.9-9.8,11.9l0,0c-6.3,10.9-6.9,20.3-3.6,22.2c1.7,1,4.5,0.1,7.6-2.3c3.4-2.7,6.9-6.9,9.8-11.9	c2.9-5,4.8-10.1,5.4-14.4c0.5-4-0.1-6.8-1.8-7.8C34,5.6,33.5,5.4,32.9,5.4z"></path><path fill="#80deea" d="M33,44.6c-5,0-12.2-6.1-17.6-15.6C8.9,17.8,7.6,6.9,12.5,4.1l0,0C17.4,1.3,26.2,7.8,32.7,19	c3,5.2,5,10.6,5.6,15.2c0.7,4.9-0.3,8.3-2.8,9.8C34.7,44.4,33.9,44.6,33,44.6z M13.5,5.8c-3.3,1.9-2.7,11.3,3.6,22.2	c6.3,10.9,14.1,16.1,17.4,14.2c1.7-1,2.3-3.8,1.8-7.8c-0.6-4.3-2.5-9.4-5.4-14.4C24.6,9.1,16.8,3.9,13.5,5.8L13.5,5.8z"></path><circle cx="24" cy="24" r="4" fill="#80deea"></circle>
-                    </svg>
+                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src="/svgs/react.svg" alt="React Logo" />
                     </div>
                     <div class="flex items-center justify-center">
-                      <svg class='mobile-l:w-[25px]' width="50" height="50" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>file_type_astro</title><path d="M5.9,18.847a7.507,7.507,0,0,0-.572,2.624,3.265,3.265,0,0,0,.551,1.553,7.427,7.427,0,0,0,2.093,1.681L13.1,28.119A7.332,7.332,0,0,0,15.2,29.287a3.239,3.239,0,0,0,1.5,0,7.381,7.381,0,0,0,2.117-1.16L24,24.711a7.512,7.512,0,0,0,2.117-1.688,3.241,3.241,0,0,0,.55-1.563,7.515,7.515,0,0,0-.587-2.643L21.547,4.551a3.973,3.973,0,0,0-.54-1.3,1.733,1.733,0,0,0-.7-.51,3.972,3.972,0,0,0-1.4-.122H13.005a3.932,3.932,0,0,0-1.4.125,1.713,1.713,0,0,0-.7.512,3.94,3.94,0,0,0-.535,1.3L5.9,18.848Zm13.24-13.2a3.329,3.329,0,0,1,.441,1.093l3.892,12.784a16.168,16.168,0,0,0-4.653-1.573L16.291,9.391a.331.331,0,0,0-.513-.169.323.323,0,0,0-.119.169l-2.5,8.557a16.14,16.14,0,0,0-4.674,1.579L12.393,6.743a3.281,3.281,0,0,1,.442-1.094,1.458,1.458,0,0,1,.582-.43,3.31,3.31,0,0,1,1.175-.1h2.793a3.314,3.314,0,0,1,1.176.1,1.454,1.454,0,0,1,.583.432ZM16.127,21.06a5.551,5.551,0,0,0,3.4-.923,2.8,2.8,0,0,1-.207,2.182A3.938,3.938,0,0,1,17.773,23.8c-.674.428-1.254.8-1.254,1.787a2.079,2.079,0,0,0,.209.914,2.49,2.49,0,0,1-1.535-2.3v-.061c0-.683,0-1.524-.962-1.524a1.028,1.028,0,0,0-.391.077,1.021,1.021,0,0,0-.552.551,1.03,1.03,0,0,0-.079.391,3.769,3.769,0,0,1-.988-2.644,4.206,4.206,0,0,1,.175-1.248c.4.757,1.92,1.32,3.731,1.32Z" style="fill:#ff5d01;fill-rule:evenodd"/></svg>
+                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src="/svgs/astro.svg" alt="Astro Logo" />
                     </div>
                     <div class="flex items-center justify-center">
-                      <svg class='mobile-l:w-[25px]' width="50" height="50" viewBox="0 0 14 14" role="img" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="#cf649a" d="M11.330197 7.6660957c-.419566.00239-.782881.1030274-1.087596.2534182-.11251-.2226564-.22502-.4169925-.2437453-.5625492-.021094-.1689455-.046875-.2719729-.021094-.4736331.0257813-.2016603.1429593-.4877933.1429593-.5109867-.0024-.019531-.02583-.1240235-.2672123-.1264649-.2414015-.00234-.4500394.048828-.4734818.1103516-.023437.063477-.070317.2084962-.1007911.3583987-.042187.220215-.4828567 1.0008795-.7336581 1.4110849-.082036-.1591798-.1523585-.2998049-.1664454-.412598-.021094-.1689454-.046875-.2719728-.021094-.4736331.025781-.2016603.1429786-.4877933.1429786-.5109866-.00234-.019531-.025781-.1240235-.2671877-.126465-.2414503-.00234-.4500393.048828-.4734768.1103517-.023438.063477-.049224.213379-.1007911.3583986-.049248.145508-.6352358 1.4485849-.7875928 1.7884289-.077349.17334-.1453028.3120119-.194546.4052737-.049224.09375-.00234.00488-.00703.014648-.042187.07959-.06563.1240235-.06563.1240235v.00239c-.032813.058594-.067974.1147462-.084404.1147462-.011719 0-.035156-.1572267.00469-.3725588.086724-.452637.2976809-1.1579109.2953616-1.1836922 0-.00977.039844-.1362305-.1359718-.1992188-.1711085-.063477-.2320265.043945-.2461134.043945-.014063 0-.025781.039063-.025781.039063s.1898585-.7945806-.3633157-.7945806c-.3469045 0-.8250723.3774417-1.0618122.7219243-.1500132.0820344-.4687913.2553747-.8063207.4409216-.1289176.0703126-.2625231.145508-.3890969.2133791l-.025762-.0292969c-.6703741-.7148936-1.9103269-1.2211928-1.8587598-2.1822285.01875-.3491213.1406372-1.270411 2.3814828-2.3861345 1.8353177-.9141119 3.3049778-.6633305 3.5604458-.1054689.3633156.7969244-.7852256 2.278322-2.6931819 2.4916034-.7266265.082031-1.1087148-.1992189-1.2047936-.3046877-.1007901-.1103516-.114854-.1147462-.152357-.09375-.060943.03418-.023437.1313478 0 .1899415.056255.1474611.2906506.4101566.6891231.5414555.3492258.1147461 1.2024497.1782227 2.2337902-.220215 1.1555706-.4477543 2.0579935-1.6899916 1.7931266-2.7283712-.2695558-1.0571296-2.0228343-1.4040536-3.6800113-.8157231-.9868289.3515627-2.0556729.9000982-2.8244906 1.6196787-.9141429.8532234-1.05946814 1.5985852-.9985253 1.9080092.2133234 1.1040046 1.7345276 1.8235852 2.3439562 2.3556656-.030474.0146484-.058599.0341797-.084382.0488282-.3047149.1499024-1.464973.7570805-1.7556236 1.399317-.328154.726612.051567 1.249366.3047146 1.319679.7828814.217773 1.5845144-.17334 2.0181462-.818067.4312644-.6445806.379721-1.4813487.1804845-1.863429l-.00706-.0146484.2390837-.1406251c.154729-.0913087.307086-.1757814.4406681-.2485354-.074983.2041017-.1289175.4453128-.1570215.7969243-.032817.412598.1359493.9469736.3586252 1.1579106.098447.09131.2156446.09375.2883058.09375.2578371 0 .3750344-.213379.5039505-.46875.1593898-.3120119.3000246-.6727543.3000246-.6727543s-.175796.9774423.3047122.9774423c.175796 0 .351592-.22754.4312893-.3447271v.00234s.00469-.00488.014063-.024414a.84687134.84687134 0 0 0 .028125-.043945v-.00469c.070317-.1220638.2273634-.4008726.4617581-.8625916.3023488-.5953617.5930209-1.3407235.5930209-1.3407235s.028125.1826173.1148536.4829105c.051543.1782227.1640528.3725588.2507814.5625491-.070317.098633-.1125098.1547853-.1125098.1547853l.00234.00234c-.0562268.0751984-.1195374.1547883-.1851429.2343782-.2390822.286133-.5250462.6118168-.5625497.7055669-.044531.1098633-.035156.1923829.051567.2578122.063286.04883.1757961.05615.2953371.04883.2156451-.01465.3656599-.0678725.4406648-.1005874.1171973-.0439453.2508058-.1054688.3797219-.1992189.2343947-.1733399.3773782-.4194338.3633157-.7477055-.00703-.1806642-.06563-.3583987-.138296-.5273929.021094-.029297.042236-.061035.063286-.09375.3703469-.5414554.656308-1.1368171.656308-1.1368171s.028125.1831056.1148536.4829104c.044531.1523438.1336036.3188478.2133009.4829104-.3469045.2836915-.5648934.6118167-.6398998.8274419-.138296.3984377-.030469.5789554.1734522.621143.091392.019531.222676-.024414.3210989-.06543.121885-.039063.269556-.1079103.4055279-.2084963.234394-.1733399.459414-.4150393.447695-.7407231-.007-.1499024-.04687-.2978517-.100791-.4384768.295337-.1220704.67738-.192383 1.162603-.1337892 1.04306.1220704 1.249328.7735357 1.209504 1.0454108-.03984.2719729-.257837.4218753-.330522.4687503-.07266.043945-.0961.061035-.08907.09375.0094.049316.04219.048828.105479.039063.08673-.014648.548486-.2226563.567238-.724268.02812-.6446781-.583646-1.3478524-1.668898-1.34087zM3.2857396 10.37806c-.3445618.377442-.8297605.520362-1.0360286.398438-.2226759-.128906-.1359727-.684473.2883063-1.0852545.2578352-.2436525.593021-.4687503.8133528-.6070805.049223-.029297.1242296-.075195.2133-.1289063.014062-.00977.023437-.014648.023437-.014648.016406-.00977.035161-.019531.053911-.03418.157045.5719242.00703 1.0735358-.3562815 1.4696785zm2.5197527-1.7134285c-.1195411.2929689-.3726907 1.0454108-.5250458 1.0032233-.1312843-.0341797-.2109572-.6047367-.0258301-1.1672859.09376-.2836916.2929934-.6211918.4101907-.7524419.1898829-.2109376.3961282-.2812502.44772-.1948243.060942.112793-.2320509.928272-.3070558 1.1110847zm2.0790892.9938483c-.051567.024414-.098447.043945-.1195411.029297-.016406-.00977.021094-.043945.021094-.043945s.2601809-.2788088.3633157-.4077151c.058599-.074707.1289161-.1616212.2039259-.2602541v.029297c.0000231.337402-.3234429.5624998-.4687701.653955zm1.6032427-.3657229c-.0375-.029297-.032813-.1147462.09376-.386719.049248-.1079102.1617335-.2880861.3562795-.4594729.023437.070312.037549.1381836.035156.2016602-.00232.4218753-.3023488.5789555-.4852005.6445805z"/>
-                      </svg>
+                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src="/svgs/sass.svg" alt="Sas Logo" />
                     </div>
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px]' src='/svgs/ts.svg' width='50' height='50' alt='Typescript Logo' />
+                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/ts.svg' width='50' height='50' alt='Typescript Logo' />
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Backend Skills -->
-        <div class="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-white to-[#2371B2] col-start-4 col-end-5 tablet:col-start-3 tablet:col-end-5 mobile-l:col-start-3 mobile-l:col-end-5 w-full rounded-3xl">
+        <div class="bg-white/[0.9] col-start-4 col-end-5 tablet:col-start-3 tablet:col-end-5 mobile-l:col-start-3 mobile-l:col-end-5 w-full rounded-3xl">
             <div class="flex items-center justify-center items-center h-full">
-              <div class="grid grid-cols-3 grid-rows-3 gap-5 w-[80%] mobile-l:gap-1">
+              <div class="grid grid-cols-3 grid-rows-3 gap-5 w-[80%] mobile-l:gap-1 smallLaptop:gap-6 4k:gap-[3rem]">
                   <div class="flex items-center justify-center">
-                    <img src='/svgs/python.svg' alt='Python programming language logo' />
+                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/python.svg' alt='Python programming language logo' />
                   </div>
 
                   <div class="flex items-center justify-center">
-                    <img src='/svgs/django.svg' alt='django programming language logo' />
+                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/django.svg' alt='django programming language logo' />
                   </div>
 
                   <div class="flex items-center justify-center">
-                    <img src='/svgs/wordpress.svg' alt='WordPress CMS Logo' />
+                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/wordpress.svg' alt='WordPress CMS Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img src='/svgs/mysql.svg' alt='My SQL Logo' />
+                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/mysql.svg' alt='My SQL Logo' />
                    
                   </div>
                   <div class="flex items-center justify-center">
-                    <img src='/svgs/auth.svg' alt='JSON Web Token Logo' />
+                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/auth.svg' alt='JSON Web Token Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img src='/svgs/aws.svg' alt='AWS Logo' />
+                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/aws.svg' alt='AWS Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img src='/svgs/docker.svg' alt='Docker Logo' />
+                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/docker.svg' alt='Docker Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img src='/svgs/node.svg' alt='Node JS Logo' />
+                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/node.svg' alt='Node JS Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img src='/svgs/express.svg' alt='Express JS Logo' />
+                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/express.svg' alt='Express JS Logo' />
                   </div>
               </div>
           </div>
@@ -108,18 +92,18 @@ import HomeLayout from "../layouts/HomeLayout.astro";
         
 
           <!-- Movienies Project Container -->
-          <section class="hover:shadow-[0px_1px_5px_0px_#f7fafc] flex flex-col gap-5 bg-black/50 transition ease-in-out hover:scale-[1.03] w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-3 row-end-5 tablet:row-start-4 tablet:row-end-5 mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-4 mobile-l:row-end-6">
+          <section class="bg-black/25 hover:shadow-[0px_1px_5px_0px_#f7fafc] flex flex-col gap-5 transition ease-in-out hover:scale-[1.03] w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-3 row-end-5 tablet:row-start-4 tablet:row-end-6 mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-4 mobile-l:row-end-6">
             <img class="rounded-t-3xl" src='imgs/movienies.jpg' alt='Movinies APP' />
-            <div class="px-5 flex flex-col gap-5 mobile-l:gap-3">
-              <h2 class="text-white font-bold text-5xl mobile-l:text-sm">Movienies.</h2>
-              <div class="flex gap-2">
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/react.svg' />
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/django.svg' />
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/tailwind.svg' />
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/aws.svg' />
+            <div class="4k:p-10 px-5 flex flex-col gap-5 mobile-l:gap-3">
+              <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[5rem]">Movienies.</h2>
+              <div class="flex gap-2 4k:gap-5">
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/react.svg' />
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/django.svg' />
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/tailwind.svg' />
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/aws.svg' />
               </div>
-              <p class="text-gray-500 mobile-l:text-sm">Movienes. is an App where you can create an Account and start Comment and Rate different movies.</p>
-              <a target="_blank" href="https://movienies.netlify.app" class="mobile-l:w-[45%] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-1 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <p class="text-gray-100 mobile-l:text-sm 4k:text-[2rem]">Movienes. is an App where you can create an Account and start Comment and Rate different movies.</p>
+              <a target="_blank" href="https://movienies.netlify.app" class="mobile-l:w-[45%] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-1 px-3 py-2 text-sm 4k:py-5 4k:text-3xl font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Go to Project
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -130,17 +114,17 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 
 
-          <div class="hover:shadow-[0px_1px_5px_0px_#f7fafc] bg-black/50 transition ease-in-out hover:scale-[1.03] w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-3 col-end-5 row-start-3 row-end-5 tablet:row-start-4 tablet:row-end-5 mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-6 mobile-l:row-end-[8]">
+          <div class="bg-black/25 hover:shadow-[0px_1px_5px_0px_#f7fafc] transition ease-in-out hover:scale-[1.03] w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-3 col-end-5 row-start-3 row-end-5 tablet:row-start-6 tablet:row-end-[8] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-6 mobile-l:row-end-[8]">
             <img class="rounded-t-3xl" src='imgs/contentw.jpg' alt='Movinies APP' />
-            <div class="p-5 flex flex-col gap-5 mobile-l:gap-3">
-              <h2 class="text-white font-bold text-5xl mobile-l:text-sm">24/7 Content Writers</h2>
+            <div class="p-5 4k:px-10 4k:py-[4rem]  flex flex-col gap-5 mobile-l:gap-3">
+              <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[5rem]">24/7 Content Writers</h2>
               <div class="flex gap-2">
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/wordpress.svg' />
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/sass.svg' />
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/figma.svg' />
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/wordpress.svg' />
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/sass.svg' />
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/figma.svg' />
               </div>
-              <p class="text-gray-500 mobile-l:text-sm">24/7 Content Writers is a page that offers SEO Services. Built with WordPress and Fully customizable with ACF.</p>
-              <a target='_blank' href="https://staging2.247contentwriters.com/" class="mobile-l:w-[45%] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-1 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <p class="text-gray-100 mobile-l:text-sm 4k:text-[2rem]">24/7 Content Writers is a page that offers SEO Services. Built with WordPress and Fully customizable with ACF.</p>
+              <a target='_blank' href="https://staging2.247contentwriters.com/" class="4k:py-5 4k:text-3xl mobile-l:w-[45%] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-1 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Go to Project
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -149,17 +133,17 @@ import HomeLayout from "../layouts/HomeLayout.astro";
             </div>
           </div>
 
-          <div class="hover:shadow-[0px_1px_5px_0px_#f7fafc] bg-[#313B4A] transition ease-in-out hover:scale-[1.03] w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-3 col-end-5 row-start-5 row-end-7 tablet:row-start-4 tablet:row-end-5 mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-[8] mobile-l:row-end-[10]">
+          <div class="bg-black/25 hover:shadow-[0px_1px_5px_0px_#f7fafc] transition ease-in-out hover:scale-[1.03] w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-5 row-end-7 tablet:row-start-[8] tablet:row-end-[10] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-[8] mobile-l:row-end-[10]">
             <img class="rounded-t-3xl" src='imgs/greenberg.jpg' alt='Movinies APP' />
-            <div class="p-5 flex flex-col gap-5 mobile-l:gap-3">
-              <h2 class="text-white font-bold text-5xl mobile-l:text-sm">Greenberg & Stein</h2>
+            <div class="4k:p-10 p-5 flex flex-col gap-5 mobile-l:gap-3">
+              <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[5rem]">Greenberg & Stein</h2>
               <div class="flex gap-2">
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/wordpress.svg' />
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/figma.svg' />
-                <img class="w-[50px] mobile-l:w-[25px]" src='/svgs/sass.svg' />
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/wordpress.svg' />
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/figma.svg' />
+                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[75px]" src='/svgs/sass.svg' />
               </div>
-              <p class="text-[#cad9f3]">Greenberg & Stein is a well known Legal firm that offers Legal services. Built with WordPress and Fully customizable with ACF.</p>
-              <a target='_blank' href="https://staging3.greenbergandstein.com/" class="mobile-l:w-[45%] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-1 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <p class="text-gray-100 mobile-l:text-sm 4k:text-[2rem]">Greenberg & Stein is a well known Legal firm that offers Legal services. Built with WordPress and Fully customizable with ACF.</p>
+              <a target='_blank' href="https://staging3.greenbergandstein.com/" class="4k:py-5 4k:text-3xl mobile-l:w-[45%] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-1 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Go to Project
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -171,72 +155,30 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 
           <!-- Github Container -->
-          <div id="github" class="bg-black/70 transition ease-in-out hover:border hover:border-white hover:scale-[1.03] w-full rounded-3xl col-start-1 col-end-3 tablet:col-start-1 tablet:col-end-5 mobile-l:row-start-[10] mobile-l:row-end-[11]">
+          <div id="github" class="bg-black/70 transition ease-in-out hover:border hover:border-white hover:scale-[1.03] w-full rounded-3xl col-start-3 col-end-5 tablet:col-start-1 tablet:col-end-5 mobile-l:row-start-[10] mobile-l:row-end-[11] tablet-l:row-start-[10] tablet-l:row-end-[11]">
             <a target="_blank" href='https://github.com/LeopoldoLira'>
               <div id="github-blend" class="flex items-center justify-center h-full">
-                <svg
-                  class='fill-white transition ease-in-out hover:scale-[1.1] mobile-l:w-[150px]'
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="200"
-                  height="200"
-                  viewBox="0 0 64 64"
-                >
-                  <path d="M32 6C17.641 6 6 17.641 6 32c0 12.277 8.512 22.56 19.955 25.286-.592-.141-1.179-.299-1.755-.479V50.85c0 0-.975.325-2.275.325-3.637 0-5.148-3.245-5.525-4.875-.229-.993-.827-1.934-1.469-2.509-.767-.684-1.126-.686-1.131-.92-.01-.491.658-.471.975-.471 1.625 0 2.857 1.729 3.429 2.623 1.417 2.207 2.938 2.577 3.721 2.577.975 0 1.817-.146 2.397-.426.268-1.888 1.108-3.57 2.478-4.774-6.097-1.219-10.4-4.716-10.4-10.4 0-2.928 1.175-5.619 3.133-7.792C19.333 23.641 19 22.494 19 20.625c0-1.235.086-2.751.65-4.225 0 0 3.708.026 7.205 3.338C28.469 19.268 30.196 19 32 19s3.531.268 5.145.738c3.497-3.312 7.205-3.338 7.205-3.338.567 1.474.65 2.99.65 4.225 0 2.015-.268 3.19-.432 3.697C46.466 26.475 47.6 29.124 47.6 32c0 5.684-4.303 9.181-10.4 10.4 1.628 1.43 2.6 3.513 2.6 5.85v8.557c-.576.181-1.162.338-1.755.479C49.488 54.56 58 44.277 58 32 58 17.641 46.359 6 32 6zM33.813 57.93C33.214 57.972 32.61 58 32 58 32.61 58 33.213 57.971 33.813 57.93zM37.786 57.346c-1.164.265-2.357.451-3.575.554C35.429 57.797 36.622 57.61 37.786 57.346zM32 58c-.61 0-1.214-.028-1.813-.07C30.787 57.971 31.39 58 32 58zM29.788 57.9c-1.217-.103-2.411-.289-3.574-.554C27.378 57.61 28.571 57.797 29.788 57.9z"></path>
-                </svg>
+                <img class='transition ease-in-out hover:scale-[1.1] mobile-l:w-[150px] smallLaptop:w-[150px] 4k:w-[300px]' src='/svgs/github.svg' alt='Github Logo' />
               </div>
             </a>
           </div>
 
 
           <!-- Contact Container -->
-          <div class="bg-black/50 hover:border hover:border-white transition ease-in-out hover:scale-105 col-start-1 col-end-2 tablet:col-start-1 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full rounded-3xl ">
+          <div class="bg-black/50 hover:border hover:border-white transition ease-in-out hover:scale-105 col-start-3 col-end-4 tablet:col-start-1 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full rounded-3xl tablet:row-start-[11] tablet:row-end-[12]">
             <a href='mailto:lira.leopoldo97@gmail.com'>
               <div class="flex items-center justify-center items-center h-full">
-                <svg class='mobile-l:w-[100px]' height="200" width="200" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                viewBox="0 0 512 512"  xml:space="preserve">
-             <style type="text/css">
-               .st0{fill:white;}
-             </style>
-             <g>
-               <path class="st0" d="M510.746,110.361c-2.128-10.754-6.926-20.918-13.926-29.463c-1.422-1.794-2.909-3.39-4.535-5.009
-                 c-12.454-12.52-29.778-19.701-47.531-19.701H67.244c-17.951,0-34.834,7-47.539,19.708c-1.608,1.604-3.099,3.216-4.575,5.067
-                 c-6.97,8.509-11.747,18.659-13.824,29.428C0.438,114.62,0,119.002,0,123.435v265.137c0,9.224,1.874,18.206,5.589,26.745
-                 c3.215,7.583,8.093,14.772,14.112,20.788c1.516,1.509,3.022,2.901,4.63,4.258c12.034,9.966,27.272,15.45,42.913,15.45h377.51
-                 c15.742,0,30.965-5.505,42.967-15.56c1.604-1.298,3.091-2.661,4.578-4.148c5.818-5.812,10.442-12.49,13.766-19.854l0.438-1.05
-                 c3.646-8.377,5.497-17.33,5.497-26.628V123.435C512,119.06,511.578,114.649,510.746,110.361z M34.823,99.104
-                 c0.951-1.392,2.165-2.821,3.714-4.382c7.689-7.685,17.886-11.914,28.706-11.914h377.51c10.915,0,21.115,4.236,28.719,11.929
-                 c1.313,1.327,2.567,2.8,3.661,4.272l2.887,3.88l-201.5,175.616c-6.212,5.446-14.21,8.443-22.523,8.443
-                 c-8.231,0-16.222-2.99-22.508-8.436L32.19,102.939L34.823,99.104z M26.755,390.913c-0.109-0.722-0.134-1.524-0.134-2.341V128.925
-                 l156.37,136.411L28.199,400.297L26.755,390.913z M464.899,423.84c-6.052,3.492-13.022,5.344-20.145,5.344H67.244
-                 c-7.127,0-14.094-1.852-20.142-5.344l-6.328-3.668l159.936-139.379l17.528,15.246c10.514,9.128,23.922,14.16,37.761,14.16
-                 c13.89,0,27.32-5.032,37.827-14.16l17.521-15.253L471.228,420.18L464.899,423.84z M485.372,388.572
-                 c0,0.803-0.015,1.597-0.116,2.304l-1.386,9.472L329.012,265.409l156.36-136.418V388.572z"/>
-             </g>
-             </svg>
+                <img class='mobile-l:w-[100px] smallLaptop:w-[150px] 4k:w-[300px]' src='/svgs/contact.svg' alt='Email Contact Logo' />
               </div>
             </a>  
           </div>
 
           <!-- Linkedin Icon Container -->
           
-          <div class="hover:border hover:border-white transition ease-in-out hover:scale-105 col-start-2 col-end-3 tablet:col-start-3 tablet:col-end-5 mobile-l:col-start-3 mobile-l:col-end-5 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full bg-[#0e76a8] rounded-3xl ">
+          <div class="hover:border hover:border-white transition ease-in-out hover:scale-105 col-start-4 col-end-5 tablet:col-start-3 tablet:col-end-5 mobile-l:col-start-3 mobile-l:col-end-5 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full bg-[#0e76a8] rounded-3xl tablet:row-start-[11] tablet:row-end-[12]">
             <a target="_blank" href='https://www.linkedin.com/in/leopoldo-lira-b70b52116/'>
               <div class="flex items-center justify-center items-center h-full">
-                <svg
-                  class='fill-white mobile-l:w-[100px]'
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="200"
-                  height="200"
-                  viewBox="0 0 50 50"
-                >
-                  <path
-                    d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
-                  ></path>
-                </svg>
+                <img class='mobile-l:w-[100px] smallLaptop:w-[150px] 4k:w-[300px]' src='/svgs/linkedin.svg' alt="Linkedin Logo" />
               </div>
             </a>  
           </div>
@@ -272,6 +214,18 @@ import HomeLayout from "../layouts/HomeLayout.astro";
     background-size: 50%;
     background-position-x: 100%;
     background-position-y: 125%;
+  }
+}
+
+@media screen and (max-width:1024px){
+  #about-container{
+    background-size: 55%;
+  }
+}
+
+@media screen and (min-width:2560px){
+  #about-container{
+    background-size: 50%;
   }
 }
 
