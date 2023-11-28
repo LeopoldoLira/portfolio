@@ -7,7 +7,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
     <div class="py-10 grid grid-cols-4 grid-rows-layout tablet:grid-rows-tabletlayout mobile-l:grid-rows-mobilelargelayout smallLaptop:grid-rows-smallLaptop 4k:grid-rows-4k 4k:w-[80%] mobile-l:w-[85%] tablet:w-[90%] smallLaptop:w-[90%] gap-5 w-[75%]">
     
     <!-- About Container -->
-    <div id="about-container" class="tablet:col-start-1 tablet:col-end-5 bg-black/25 col-start-1 col-end-4 row-start-1 row-end-3 mobile-l:row-end-3 w-full rounded-3xl">
+    <div id="about-container" class="observer__item tablet:col-start-1 tablet:col-end-5 bg-black/25 col-start-1 col-end-4 row-start-1 row-end-3 mobile-l:row-end-3 w-full rounded-3xl">
       <div class="flex justify-center items-center flex-col h-full pl-[18rem] mobile-l:pl-0 gap-10 mobile-l:gap-5 4k:pl-[25rem]">
         <h1 class='mobile-l:text-2xl 4k:text-[2.5rem] text-3xl italic font-medium text-white w-[90%]'>Hello 👋, I'm Leo a Software Developer with 3+ Years of experience.</h1>
         <p class='mobile-l:text-[1rem] text-2xl 4k:text-[2rem] text-white w-[90%] mobile-l:px-0 font-thin'>Based in Nicaragua, with expertise in both Frontend And Backend using React and Django.</p>
@@ -16,7 +16,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 
       <!-- Frotend Skills -->
-        <div class="bg-black/50 col-start-4 col-end-5 tablet:col-start-1 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 w-full rounded-3xl ">
+        <div id="frontend__skills" class="observer__item bg-black/50 col-start-4 col-end-5 tablet:col-start-1 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 w-full rounded-3xl ">
             <div class="flex items-center justify-center items-center h-full">
                 <div class="grid grid-cols-3 grid-rows-3 gap-5 mobile-l:gap-1 w-[80%] smallLaptop:gap-6 4k:gap-[3rem]">
                     <div class="flex items-center justify-center">
@@ -53,7 +53,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
         </div>
 
         <!-- Backend Skills -->
-        <div class="bg-white/[0.9] col-start-4 col-end-5 tablet:col-start-3 tablet:col-end-5 mobile-l:col-start-3 mobile-l:col-end-5 w-full rounded-3xl">
+        <div id="backend__skills"  class="observer__item bg-white/[0.9] col-start-4 col-end-5 tablet:col-start-3 tablet:col-end-5 mobile-l:col-start-3 mobile-l:col-end-5 w-full rounded-3xl">
             <div class="flex items-center justify-center items-center h-full">
               <div class="grid grid-cols-3 grid-rows-3 gap-5 w-[80%] mobile-l:gap-1 smallLaptop:gap-6 4k:gap-[3rem]">
                   <div class="flex items-center justify-center">
@@ -92,7 +92,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
         
 
           <!-- Movienies Project Container -->
-          <section class="bg-black/25 hover:shadow-[0px_1px_5px_0px_#f7fafc] flex flex-col gap-5 transition ease-in-out hover:scale-[1.03] w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-3 row-end-5 tablet:row-start-4 tablet:row-end-6 mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-4 mobile-l:row-end-6">
+          <section id="project__movienies" class="observer__item bg-black/25 flex flex-col gap-5 w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-3 row-end-5 tablet:row-start-4 tablet:row-end-6 mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-4 mobile-l:row-end-6">
             <img class="rounded-t-3xl" src='imgs/movienies.jpg' alt='Movinies APP' />
             <div class="4k:p-10 px-5 flex flex-col gap-5 mobile-l:gap-3">
               <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[5rem]">Movienies.</h2>
@@ -114,8 +114,8 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 
 
-          <div class="bg-black/25 hover:shadow-[0px_1px_5px_0px_#f7fafc] transition ease-in-out hover:scale-[1.03] w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-3 col-end-5 row-start-3 row-end-5 tablet:row-start-6 tablet:row-end-[8] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-6 mobile-l:row-end-[8]">
-            <img class="rounded-t-3xl" src='imgs/contentw.jpg' alt='Movinies APP' />
+          <div id="project__content" class="observer__item bg-black/25 w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-3 col-end-5 row-start-3 row-end-5 tablet:row-start-6 tablet:row-end-[8] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-6 mobile-l:row-end-[8]">
+            <img class="rounded-t-3xl" src='imgs/contentw.jpg' alt='Content Writers App' />
             <div class="p-5 4k:px-10 4k:py-[4rem]  flex flex-col gap-5 mobile-l:gap-3">
               <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[5rem]">24/7 Content Writers</h2>
               <div class="flex gap-2">
@@ -133,7 +133,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
             </div>
           </div>
 
-          <div class="bg-black/25 hover:shadow-[0px_1px_5px_0px_#f7fafc] transition ease-in-out hover:scale-[1.03] w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-5 row-end-7 tablet:row-start-[8] tablet:row-end-[10] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-[8] mobile-l:row-end-[10]">
+          <div id="project__greenberg" class="observer__item bg-black/25 w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-5 row-end-7 tablet:row-start-[8] tablet:row-end-[10] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-[8] mobile-l:row-end-[10]">
             <img class="rounded-t-3xl" src='imgs/greenberg.jpg' alt='Movinies APP' />
             <div class="4k:p-10 p-5 flex flex-col gap-5 mobile-l:gap-3">
               <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[5rem]">Greenberg & Stein</h2>
@@ -155,7 +155,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 
           <!-- Github Container -->
-          <div id="github" class="bg-black/70 transition ease-in-out hover:border hover:border-white hover:scale-[1.03] w-full rounded-3xl col-start-3 col-end-5 tablet:col-start-1 tablet:col-end-5 mobile-l:row-start-[10] mobile-l:row-end-[11] tablet-l:row-start-[10] tablet-l:row-end-[11]">
+          <div id="github" class="observer__item bg-black/70 w-full rounded-3xl col-start-3 col-end-5 tablet:col-start-1 tablet:col-end-5 mobile-l:row-start-[10] mobile-l:row-end-[11] tablet-l:row-start-[10] tablet-l:row-end-[11]">
             <a target="_blank" href='https://github.com/LeopoldoLira'>
               <div id="github-blend" class="flex items-center justify-center h-full">
                 <img class='transition ease-in-out hover:scale-[1.1] mobile-l:w-[150px] smallLaptop:w-[150px] 4k:w-[300px]' src='/svgs/github.svg' alt='Github Logo' />
@@ -165,7 +165,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 
           <!-- Contact Container -->
-          <div class="bg-black/50 hover:border hover:border-white transition ease-in-out hover:scale-105 col-start-3 col-end-4 tablet:col-start-1 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full rounded-3xl tablet:row-start-[11] tablet:row-end-[12]">
+          <div id="contact" class="observer__item bg-black/50 col-start-3 col-end-4 tablet:col-start-1 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full rounded-3xl tablet:row-start-[11] tablet:row-end-[12]">
             <a href='mailto:lira.leopoldo97@gmail.com'>
               <div class="flex items-center justify-center items-center h-full">
                 <img class='mobile-l:w-[100px] smallLaptop:w-[150px] 4k:w-[300px]' src='/svgs/contact.svg' alt='Email Contact Logo' />
@@ -175,7 +175,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
           <!-- Linkedin Icon Container -->
           
-          <div class="hover:border hover:border-white transition ease-in-out hover:scale-105 col-start-4 col-end-5 tablet:col-start-3 tablet:col-end-5 mobile-l:col-start-3 mobile-l:col-end-5 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full bg-[#0e76a8] rounded-3xl tablet:row-start-[11] tablet:row-end-[12]">
+          <div id="linkedin" class="observer__item col-start-4 col-end-5 tablet:col-start-3 tablet:col-end-5 mobile-l:col-start-3 mobile-l:col-end-5 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full bg-[#0e76a8] rounded-3xl tablet:row-start-[11] tablet:row-end-[12]">
             <a target="_blank" href='https://www.linkedin.com/in/leopoldo-lira-b70b52116/'>
               <div class="flex items-center justify-center items-center h-full">
                 <img class='mobile-l:w-[100px] smallLaptop:w-[150px] 4k:w-[300px]' src='/svgs/linkedin.svg' alt="Linkedin Logo" />
@@ -201,7 +201,61 @@ import HomeLayout from "../layouts/HomeLayout.astro";
   background-repeat: no-repeat;
   background-position-x: -20%;
   background-position-y: 120%;
+  transition: opacity 300ms ease-in-out;
+
 }
+
+#frontend__skills{
+  transition: opacity 700ms ease-in-out;
+}
+#backend__skills{
+  transition: opacity 1500ms ease-in-out;
+}
+
+#project__movienies{
+  transition: opacity 700ms ease-in-out, scale 300ms ease-in-out;
+}
+#project__content{
+  transition: opacity 1500ms ease-in-out, scale 300ms ease-in-out;
+}
+
+#project__greenberg{
+  transition: opacity 300ms ease-in-out, scale 300ms ease-in-out;
+}
+
+#github{
+  transition: opacity 700ms ease-in-out, scale 300ms ease-in-out;
+}
+
+#contact{
+  transition: opacity 1500ms ease-in-out, scale 300ms ease-in-out;
+}
+
+
+#linkedin{
+  transition: opacity 2000ms ease-in-out, scale 300ms ease-in-out;
+}
+
+ 
+#contact:hover, 
+#linkedin:hover{
+  box-shadow: 0px 0px 5px 1px rgba(255,255,255, 1);
+  scale: 1.05;
+}
+
+#project__movienies:hover, 
+#project__content:hover, 
+#project__greenberg:hover, 
+#github:hover{
+  box-shadow: 0px 0px 5px 1px rgba(255,255,255, 1);
+  scale: 1.03;
+}
+
+.observer__item{
+  opacity: 0;
+}
+
+
 
 @media screen and (max-width:768px){
   #about-container{
@@ -230,3 +284,28 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 }
 
 </style>
+
+<script>
+  const observerItems = document.querySelectorAll('.observer__item');
+
+const options = {
+  root:null,
+  rootMargin:'0px',
+  threshold:0.5
+}
+
+function handleIntersection(entries, observer){
+  entries.forEach(entry =>{
+    if (entry.isIntersecting){
+      entry.target.style.opacity = 1;
+      observer.unobserve(entry.target)
+    }
+  })
+}
+
+const observer = new IntersectionObserver(handleIntersection, options);
+
+observerItems.forEach(item =>{
+  observer.observe(item)
+})
+</script>
