@@ -10,7 +10,7 @@ module.exports = {
 			gridTemplateRows:{
 				'layout':'repeat(6,17.5rem)',
 				'tabletlayout':'repeat(11,20rem)',
-				'mobilelargelayout':'repeat(11, 11.5rem)',
+				'mobilelargelayout':'repeat(11, 9.5rem)',
 				'smallLaptop':'repeat(6,15rem)',
 				'4k':'repeat(6,23rem)'
 			}
