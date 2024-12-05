@@ -12,12 +12,12 @@ module.exports = {
 				'tabletlayout':'repeat(11,20rem)',
 				'mobilelargelayout':'repeat(11, 11.5rem)',
 				'smallLaptop':'repeat(6,15rem)',
-				'4k':'repeat(6,30rem)'
+				'4k':'repeat(6,23rem)'
 			}
 		},
 
 		screens:{
-			'4k':{'min':'2560px'},
+			'4k':{'max':'1920px'},
 			'smallLaptop':{'max':'1024px'},
 			'tablet':{'max':'768px'},
 			'mobile-l':{'max':'425px'}
