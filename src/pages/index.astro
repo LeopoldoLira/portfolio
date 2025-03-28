@@ -3,88 +3,86 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 ---
 
 <HomeLayout title="Fullstack Developer | Leopoldo Lira">
-  <main class="w-full min-h-fit flex justify-center items-center">
-    <div class="py-10 grid grid-cols-4 grid-rows-layout tablet:grid-rows-tabletlayout mobile-l:grid-rows-mobilelargelayout smallLaptop:grid-rows-smallLaptop 4k:grid-rows-4k 4k:w-[80%] mobile-l:w-[85%] tablet:w-[90%] smallLaptop:w-[90%] gap-5 w-[75%]">
+  <main class="w-full flex justify-center items-center">
+    <div class="py-10 mobile:px-5 px-[5rem] grid grid-cols-3 mobile:grid-cols-1 sm-laptop:grid-cols-2 tablet:grid-cols-1 gap-10">
     
     <!-- About Container -->
-    <div id="about-container" class="observer__item tablet:col-start-1 tablet:col-end-5 bg-black/25 col-start-1 col-end-4 row-start-1 row-end-3 mobile-l:row-end-3 w-full rounded-3xl">
-      <div class="flex justify-center items-center flex-col h-full pl-[18rem] mobile-l:pl-0 gap-10 mobile-l:gap-5 4k:pl-[25rem]">
-        <h1 class='mobile-l:text-2xl 4k:text-[2.5rem] text-3xl italic font-medium text-white w-[90%]'>Based in Nicaragua, delivering customizable WordPress solutions and full-stack apps with Django and React.</h1>
-        <p class='mobile-l:text-[1rem] text-2xl 4k:text-[2rem] text-white w-[90%] mobile-l:px-0 font-thin'>Hello 👋, I'm Leopoldo a Software Developer with 4+ Years of experience.</p>
-      </div>
+    <div id="about-container" class="observer__item bg-black/25 rounded-3xl flex justify-center flex-col px-7 tablet:py-[15rem] mobile:py-[10rem]">
+        <h1 class="italic font-medium text-white">Based in Nicaragua, delivering customizable WordPress solutions and full-stack apps with Django and React.</h1>
+        <p class="text-white font-thin">Hello 👋, I'm Leopoldo a Software Developer with 4+ Years of experience.</p>
     </div>
 
 
       <!-- Frotend Skills -->
-        <div id="frontend__skills" class="observer__item bg-black/50 col-start-4 col-end-5 tablet:col-start-1 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 w-full rounded-3xl ">
-            <div class="flex items-center justify-center items-center h-full">
-                <div class="grid grid-cols-3 grid-rows-3 gap-5 mobile-l:gap-1 w-[80%] smallLaptop:gap-6 4k:gap-[3rem]">
+        <div id="frontend__skills" class="observer__item bg-black/50 rounded-3xl ">
+            <div class="flex items-center justify-center">
+                <div class="grid grid-cols-3 gap-10 py-[4rem]">
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='svgs/html.svg' alt='HTML Logo' />
+                      <img class='w-[3rem]' src='svgs/html.svg' alt='HTML Logo' />
                     </div>
 
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='svgs/css.svg' alt='CSS Logo' />
+                      <img class='w-[3rem]' src='svgs/css.svg' alt='CSS Logo' />
                     </div>
 
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='svgs/js.svg' alt='JavaScript Logo' />
+                      <img class='w-[3rem]' src='svgs/js.svg' alt='JavaScript Logo' />
                     </div>
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='svgs/jest.svg' alt='Jest Logo' />
+                      <img class='w-[3rem]' src='svgs/jest.svg' alt='Jest Logo' />
                     </div>
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src="/svgs/tailwind.svg" alt="Tailwind Logo" />
+                      <img class='w-[3rem]' src="/svgs/tailwind.svg" alt="Tailwind Logo" />
                     </div>
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src="/svgs/react.svg" alt="React Logo" />
+                      <img class='w-[3rem]' src="/svgs/react.svg" alt="React Logo" />
                     </div>
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src="/svgs/astro.svg" alt="Astro Logo" />
+                      <img class='w-[3rem]' src="/svgs/astro.svg" alt="Astro Logo" />
                     </div>
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src="/svgs/sass.svg" alt="Sas Logo" />
+                      <img class='w-[3rem]' src="/svgs/sass.svg" alt="Sas Logo" />
                     </div>
                     <div class="flex items-center justify-center">
-                      <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/ts.svg' width='50' height='50' alt='Typescript Logo' />
+                      <img class='w-[3rem]' src='/svgs/ts.svg' width='50' height='50' alt='Typescript Logo' />
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Backend Skills -->
-        <div id="backend__skills"  class="observer__item bg-white/[0.9] col-start-4 col-end-5 tablet:col-start-3 tablet:col-end-5 mobile-l:col-start-3 mobile-l:col-end-5 w-full rounded-3xl">
-            <div class="flex items-center justify-center items-center h-full">
-              <div class="grid grid-cols-3 grid-rows-3 gap-5 w-[80%] mobile-l:gap-1 smallLaptop:gap-6 4k:gap-[3rem]">
+        <div id="backend__skills"  class="observer__item bg-white/[0.9] rounded-3xl flex items-center justify-center">
+            <div class="">
+              <div class="grid grid-cols-3 gap-10 py-10">
                   <div class="flex items-center justify-center">
-                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/python.svg' alt='Python programming language logo' />
+                    <img class='w-[3rem]' src='/svgs/python.svg' alt='Python programming language logo' />
                   </div>
 
                   <div class="flex items-center justify-center">
-                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/django.svg' alt='django programming language logo' />
+                    <img class='w-[3rem]' src='/svgs/django.svg' alt='django programming language logo' />
                   </div>
 
                   <div class="flex items-center justify-center">
-                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/wordpress.svg' alt='WordPress CMS Logo' />
+                    <img class='w-[3rem]' src='/svgs/wordpress.svg' alt='WordPress CMS Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/mysql.svg' alt='My SQL Logo' />
+                    <img class='w-[3rem]' src='/svgs/mysql.svg' alt='My SQL Logo' />
                    
                   </div>
                   <div class="flex items-center justify-center">
-                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/auth.svg' alt='JSON Web Token Logo' />
+                    <img class='w-[3rem]' src='/svgs/auth.svg' alt='JSON Web Token Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/aws.svg' alt='AWS Logo' />
+                    <img class='w-[3rem]' src='/svgs/aws.svg' alt='AWS Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/docker.svg' alt='Docker Logo' />
+                    <img class='w-[3rem]' src='/svgs/docker.svg' alt='Docker Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/node.svg' alt='Node JS Logo' />
+                    <img class='w-[3rem]' src='/svgs/node.svg' alt='Node JS Logo' />
                   </div>
                   <div class="flex items-center justify-center">
-                    <img class='mobile-l:w-[25px] smallLaptop:w-[35px] 4k:w-[75px]' src='/svgs/express.svg' alt='Express JS Logo' />
+                    <img class='w-[3rem]' src='/svgs/express.svg' alt='Express JS Logo' />
                   </div>
               </div>
           </div>
@@ -92,18 +90,18 @@ import HomeLayout from "../layouts/HomeLayout.astro";
         
 
           <!-- Movienies Project Container -->
-          <section id="project__movienies" class="observer__item bg-black/25 flex flex-col gap-5 w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-3 row-end-5 tablet:row-start-4 tablet:row-end-6 mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-4 mobile-l:row-end-6">
+          <section id="project__movienies" class="observer__item bg-black/25 flex flex-col gap-5 rounded-3xl">
             <img class="rounded-t-3xl" src='imgs/movienies.jpg' alt='Movinies APP' />
-            <div class="mobile-l:px-5 mobile-l:py-1 4k:p-10 px-5 flex flex-col gap-5 mobile-l:gap-3 tablet:gap-1">
-              <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[2.5rem]">Movienies.</h2>
-              <div class="flex gap-2  4k:gap-5">
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt='React Logo' src='/svgs/react.svg' />
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt='Django Logo' src='/svgs/django.svg' />
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt='Tailwind Logo' src='/svgs/tailwind.svg' />
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt='AWS Logo' src='/svgs/aws.svg' />
+            <div class="px-5 sm-laptop:py-5 tablet:py-5 mobile:py-5 flex flex-col gap-5">
+              <h2 class="text-white font-bold text-3xl">Movienies.</h2>
+              <div class="flex gap-2">
+                <img class="w-[40px]" alt='React Logo' src='/svgs/react.svg' />
+                <img class="w-[40px]" alt='Django Logo' src='/svgs/django.svg' />
+                <img class="w-[40px]" alt='Tailwind Logo' src='/svgs/tailwind.svg' />
+                <img class="w-[40px]" alt='AWS Logo' src='/svgs/aws.svg' />
               </div>
-              <p class="text-gray-100 mobile-l:text-[0.75rem] 4k:text-[1.5rem]">Movienes. is an App where you can create an Account and start Comment and Rate different movies.</p>
-              <a target="_blank" href="https://movienies.netlify.app" class="mobile-l:w-[60%] mobile-l:text-[0.75rem] w-[35%] flex items-center justify-center mobile-l:px-1 mobile-l:py-[0.05rem] px-3 py-2 text-sm 4k:py-5 4k:text-2xl font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <p class="text-gray-300">Movienes. is an App where you can create an Account and start Comment and Rate different movies.</p>
+              <a target="_blank" href="https://movienies.netlify.app" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Go to Project
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -114,54 +112,54 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 
 
-          <div id="project__content" class="observer__item bg-black/25 w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-3 col-end-5 row-start-3 row-end-5 tablet:row-start-6 tablet:row-end-[8] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-6 mobile-l:row-end-[8]">
+          <section id="project__content" class="observer__item bg-black/25 flex flex-col gap-5 rounded-3xl">
             <img class="rounded-t-3xl" src='imgs/contentw.jpg' alt='Content Writers App' />
-            <div class="mobile-l:px-5 mobile-l:py-3 p-5 4k:px-10 4k:py-[4rem]  flex flex-col gap-5 mobile-l:gap-3 tablet:gap-1">
-              <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[2.5rem]">24/7 Content Writers</h2>
+            <div class="px-5 flex flex-col tablet:py-5 mobile:py-5 gap-5 ">
+              <h2 class="text-white font-bold text-3xl ">Content Writers</h2>
               <div class="flex gap-2">
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="SASS Logo" src='/svgs/sass.svg' />
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="Figma Logo" src='/svgs/figma.svg' />
+                <img class="w-[40px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
+                <img class="w-[40px]" alt="SASS Logo" src='/svgs/sass.svg' />
+                <img class="w-[40px]" alt="Figma Logo" src='/svgs/figma.svg' />
               </div>
-              <p class="text-gray-100 mobile-l:text-[0.75rem] 4k:text-[1.5rem]">24/7 Content Writers is a page that offers SEO Services. Built with WordPress and Fully customizable with ACF.</p>
-              <a target='_blank' href="https://247contentwriters.infinityfreeapp.com/" class="4k:py-5 4k:text-2xl mobile-l:w-[60%] mobile-l:text-[0.75rem] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-[0.05rem] px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <p class="text-gray-300">24/7 Content Writers is a page that offers SEO Services. Built with WordPress and Fully customizable with ACF.</p>
+              <a target='_blank' href="https://247contentwriters.infinityfreeapp.com/" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Go to Project
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
               </a>
             </div>
-          </div>
+          </section>
 
-          <div id="project__greenberg" class="observer__item bg-black/25 w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-5 row-end-7 tablet:row-start-[8] tablet:row-end-[10] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-[8] mobile-l:row-end-[10]">
+          <section id="project__greenberg" class="observer__item bg-black/25 rounded-3xl">
             <img class="rounded-t-3xl" src='imgs/greenberg.jpg' alt='Movinies APP' />
-            <div class="mobile-l:px-5 mobile-l:py-3 4k:p-10 p-5 flex flex-col gap-5 mobile-l:gap-2 tablet:gap-1">
-              <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[2.5rem]">Greenberg & Stein</h2>
+            <div class="p-5 flex flex-col gap-5">
+              <h2 class="text-white font-bold text-3xl ">Greenberg & Stein</h2>
               <div class="flex gap-2">
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="Figma Logo" src='/svgs/figma.svg' />
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="SASS Logo" src='/svgs/sass.svg' />
+                <img class="w-[40px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
+                <img class="w-[40px]" alt="Figma Logo" src='/svgs/figma.svg' />
+                <img class="w-[40px]" alt="SASS Logo" src='/svgs/sass.svg' />
               </div>
-              <p class="text-gray-100 mobile-l:text-[0.75rem] 4k:text-[1.5rem]">Greenberg & Stein is a well known Legal firm that offers Legal services. Built with WordPress and Fully customizable with ACF.</p>
-              <a target='_blank' href="https://greenbergandstein.com/" class="4k:py-5 4k:text-2xl mobile-l:w-[60%] mobile-l:text-[0.75rem] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-[0.05rem] px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <p class="text-gray-300">Greenberg & Stein is a well known Legal firm that offers Legal services. Built with WordPress and Fully customizable with ACF.</p>
+              <a target='_blank' href="https://greenbergandstein.com/" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Go to Project
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
               </a>
             </div>
-          </div>
+          </section>
 
-          <div id="project__clothongboutique" class="observer__item bg-black/25 w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-3 col-end-5 row-start-5 row-end-7 tablet:row-start-[8] tablet:row-end-[10] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-[8] mobile-l:row-end-[10]">
+          <div id="project__clothongboutique" class="observer__item bg-black/25 w-full rounded-3xl ">
             <img class="rounded-t-3xl" src='imgs/clothing.png' alt='Image of Clothing Boutique landing page' />
-            <div class="mobile-l:px-5 mobile-l:py-3 4k:p-10 p-5 flex flex-col gap-5 mobile-l:gap-2 tablet:gap-1">
-              <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[2.5rem]">ClothingBoutique</h2>
+            <div class="p-5 flex flex-col gap-5 ">
+              <h2 class="text-white font-bold text-3xl">ClothingBoutique</h2>
               <div class="flex gap-2">
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="SASS Logo" src='/svgs/sass.svg' />
+                <img class="w-[40px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
+                <img class="w-[40px]" alt="SASS Logo" src='/svgs/sass.svg' />
               </div>
-              <p class="text-gray-100 mobile-l:text-[0.75rem] 4k:text-[1.5rem]">A stylish WordPress site crafted to highlight the latest clothing collections. With custom designs, an interactive product catalog, and user-friendly functionality.</p>
-              <a target='_blank' href="https://clothingboutique.infinityfreeapp.com/" class="4k:py-5 4k:text-2xl mobile-l:w-[60%] mobile-l:text-[0.75rem] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-[0.05rem] px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <p class="text-gray-300">A stylish WordPress site crafted to highlight the latest clothing collections. With custom designs, an interactive product catalog, and user-friendly functionality.</p>
+              <a target='_blank' href="https://clothingboutique.infinityfreeapp.com/" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Go to Project
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -170,16 +168,16 @@ import HomeLayout from "../layouts/HomeLayout.astro";
             </div>
           </div>
 
-          <div id="project__multiservices" class="observer__item bg-black/25 w-full rounded-3xl tablet:col-start-1 tablet:col-end-5 col-start-1 col-end-3 row-start-7 row-end-9 tablet:row-start-[8] tablet:row-end-[10] mobile-l:col-start-1 mobile-l:col-end-5 mobile-l:row-start-[8] mobile-l:row-end-[10]">
+          <div id="project__multiservices" class="observer__item bg-black/25 w-full rounded-3xl">
             <img class="rounded-t-3xl" src='imgs/multiservices.png' alt='Movinies APP' />
-            <div class="mobile-l:px-5 mobile-l:py-3 4k:p-10 p-5 flex flex-col gap-5 mobile-l:gap-2 tablet:gap-1">
-              <h2 class="text-white font-bold text-5xl mobile-l:text-sm smallLaptop:text-[2rem] 4k:text-[2.5rem]">Multiservices</h2>
+            <div class="p-5 flex flex-col gap-5">
+              <h2 class="text-white font-bold text-3xl ">Multiservices</h2>
               <div class="flex gap-2">
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
-                <img class="w-[50px] mobile-l:w-[25px] 4k:w-[50px]" alt="SASS Logo" src='/svgs/sass.svg' />
+                <img class="w-[40px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
+                <img class="w-[40px]" alt="SASS Logo" src='/svgs/sass.svg' />
               </div>
-              <p class="text-gray-100 mobile-l:text-[0.75rem] 4k:text-[1.5rem]">A custom WordPress website designed to showcase and manage IT services and products. Built for seamless user experience, it features intuitive navigation, a tailored catalog, and integrated tools for service inquiries and product exploration.</p>
-              <a target='_blank' href="https://multiservices.infinityfreeapp.com/" class="4k:py-5 4k:text-2xl mobile-l:w-[60%] mobile-l:text-[0.75rem] w-[35%] flex items-center justify-center mobile-l:px-2 mobile-l:py-[0.05rem] px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <p class="text-gray-300">A custom WordPress website designed to showcase and manage IT services and products. Built for seamless user experience, it features intuitive navigation and a tailored catalog.</p>
+              <a target='_blank' href="https://multiservices.infinityfreeapp.com/" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Go to Project
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -191,7 +189,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 
           <!-- Github Container -->
-          <div id="github" class="observer__item bg-black/70 w-full rounded-3xl col-start-3 col-end-5  tablet:col-start-1 tablet:col-end-5 mobile-l:row-start-[10] mobile-l:row-end-[11] tablet-l:row-start-[10] tablet-l:row-end-[11]">
+          <div id="github" class="observer__item bg-black/70 rounded-3xl">
             <a target="_blank" href='https://github.com/LeopoldoLira'>
               <div id="github-blend" class="flex items-center justify-center h-full">
                 <img class='transition ease-in-out hover:scale-[1.1] mobile-l:w-[150px] smallLaptop:w-[150px] 4k:w-[250px]' src='/svgs/github.svg' alt='Github Logo' />
@@ -201,25 +199,30 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 
           <!-- Contact Container -->
-          <!-- <div id="contact" class="observer__item bg-black/50 col-start-3 col-end-4 tablet:col-start-1 row-start-8 row-end-9 tablet:col-end-3 mobile-l:col-start-1 mobile-l:col-end-3 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full rounded-3xl tablet:row-start-[11] tablet:row-end-[12]">
+          <div id="contact" class="observer__item bg-black/50  rounded-3xl">
             <a href='mailto:lira.leopoldo97@gmail.com'>
-              <div class="flex items-center justify-center items-center h-full">
-                <img class='mobile-l:w-[100px] smallLaptop:w-[150px] 4k:w-[250px]' src='/svgs/contact.svg' alt='Email Contact Logo' />
+              <div class="flex items-center justify-center items-center py-[5rem]">
+                <img class='w-50' src='/svgs/contact.svg' alt='Email Contact Logo' />
               </div>
             </a>  
-          </div> -->
+          </div>
 
           <!-- Linkedin Icon Container -->
           
-          <!-- <div id="linkedin" class="observer__item col-start-4 col-end-5 tablet:col-start-3 tablet:col-end-5 row-start-8 row-end-9 mobile-l:col-start-3 mobile-l:col-end-5 mobile-l:row-start-[11] mobile-l:row-end-[12] w-full bg-[#0e76a8] rounded-3xl tablet:row-start-[11] tablet:row-end-[12]">
+          <div id="linkedin" class="observer__item  bg-[#0e76a8] rounded-3xl">
             <a target="_blank" href='https://www.linkedin.com/in/leopoldo-lira-b70b52116/'>
-              <div class="flex items-center justify-center items-center h-full">
-                <img class='mobile-l:w-[100px] smallLaptop:w-[150px] 4k:w-[250px]' src='/svgs/linkedin.svg' alt="Linkedin Logo" />
+              <div class="flex items-center justify-center items-center py-[5rem]">
+                <img class='w-50' src='/svgs/linkedin.svg' alt="Linkedin Logo" />
               </div>
             </a>  
-          </div> -->
+          </div>
 
-
+          <div id="catgif" class="observer__item rounded-3xl tablet:py-[15rem] mobile:py-[10rem]">
+            <a target="_blank" href='https://www.linkedin.com/in/leopoldo-lira-b70b52116/'>
+              <div class="flex items-center justify-center items-center ">
+              </div>
+            </a>  
+          </div>
          
     </div>
   </main>
@@ -233,9 +236,9 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 #about-container{
   background-image: url('/imgs/leo.png');
-  background-size: normal;
+  background-size: 30%;
   background-repeat: no-repeat;
-  background-position-x: -20%;
+  background-position-x: 0%;
   background-position-y: 120%;
   transition: opacity 300ms ease-in-out;
 
@@ -272,6 +275,12 @@ import HomeLayout from "../layouts/HomeLayout.astro";
   transition: opacity 2000ms ease-in-out, scale 200ms ease-in-out;
 }
 
+#catgif{
+  background-image: url('/imgs/cat-typing.gif');
+  background-position: center;
+  background-size: cover;
+}
+
  
 #contact:hover, 
 #linkedin:hover{
@@ -293,16 +302,16 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 @media (min-width:1px) and (max-width:425px){
   #about-container{
-    background-size: 40%;
+    background-size: 50%;
     background-position-x: 100%;
-    background-position-y: 125%;
+    background-position-y: 105%;
   }
 }
 
 
 @media (min-width:426px) and (max-width:768px){
   #about-container{
-    background-size: 65%;
+    background-size: 50%;
   }
 }
 
@@ -310,7 +319,7 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 
 @media (min-width:769px) and (max-width:1024px){
   #about-container{
-    background-size: 55%;
+    background-size: 40%;
   }
 }
 
