@@ -1,0 +1,72 @@
+---
+import HomeLayout from "../../layouts/HomeLayout.astro";
+import { projects } from "../../data/projects";
+---
+
+<HomeLayout
+  title="Projects | Leopoldo Lira"
+  description="Selected work by Leopoldo Lira — fullstack and WordPress projects built with React, Django, and WordPress for clients from New York to Nicaragua."
+>
+  <main class="mx-auto w-full max-w-[1100px] px-sm pb-2xl pt-2xl md:px-lg">
+    <a
+      href="/"
+      class="inline-flex items-center gap-xs font-mono text-xs text-text-secondary transition-colors hover:text-accent"
+    >
+      <span aria-hidden="true">&#8249;</span>
+      back home
+    </a>
+
+    <header class="mb-lg mt-lg">
+      <p class="mono-label">index</p>
+      <h1 class="mt-xs font-display text-3xl font-semibold tracking-tight text-text-primary md:text-4xl">
+        All projects
+      </h1>
+    </header>
+
+    <ul class="flex flex-col">
+      {
+        projects.map((project, i) => (
+          <li>
+            <a
+              href={`/projects/${project.slug}`}
+              class="manifest-row group -mx-sm grid grid-cols-1 items-center gap-md border-t border-border px-sm py-lg transition-colors last:border-b hover:bg-accent-soft sm:grid-cols-[13rem_1fr_auto]"
+            >
+              <div class="overflow-hidden rounded-md border border-border">
+                <img
+                  src={project.image}
+                  alt={`${project.title} — screenshot`}
+                  loading="lazy"
+                  class="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+
+              <div class="min-w-0">
+                <div class="flex items-center gap-xs">
+                  <span class="font-mono text-xs text-text-secondary">{String(i + 1).padStart(2, "0")}</span>
+                  <span class="font-display text-lg font-semibold text-text-primary transition-colors group-hover:text-accent">
+                    {project.title}
+                  </span>
+                  {project.featured && (
+                    <span class="rounded-full bg-accent-soft px-2 py-0.5 font-mono text-[0.6rem] uppercase tracking-wider text-accent">
+                      featured
+                    </span>
+                  )}
+                </div>
+                <p class="mt-xs text-sm leading-relaxed text-text-secondary">
+                  {project.shortDescription}
+                </p>
+                <p class="mt-xs font-mono text-xs text-text-secondary">
+                  {project.techStack.join(" · ")}
+                </p>
+              </div>
+
+              <span class="hidden font-mono text-text-secondary transition-all group-hover:translate-x-1 group-hover:text-accent sm:block" aria-hidden="true">
+                &#8250;
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</HomeLayout>

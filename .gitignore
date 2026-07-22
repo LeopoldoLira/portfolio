@@ -8,6 +8,9 @@ dist/
 node_modules/
 .vscode/
 
+# Claude Code / agent tooling (skills, agents, local settings, launch config)
+.claude/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
@@ -17,6 +20,11 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.local
+.env.*.local
 
-# macOS-specific files
+# OS-specific files
 .DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini

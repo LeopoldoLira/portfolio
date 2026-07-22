@@ -1,0 +1,108 @@
+---
+import type { GetStaticPaths } from "astro";
+import HomeLayout from "../../layouts/HomeLayout.astro";
+import { projects } from "../../data/projects";
+
+export const getStaticPaths = (() => {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}) satisfies GetStaticPaths;
+
+const { project } = Astro.props;
+const { slug, title, shortDescription, description, techStack, image, liveUrl, repoUrl } =
+  project;
+---
+
+<HomeLayout
+  title={`${title} | Leopoldo Lira`}
+  description={shortDescription}
+  image={image}
+>
+  <main class="mx-auto w-full max-w-[1100px] px-sm pb-2xl pt-2xl md:px-lg">
+    <!-- Back link -->
+    <a
+      href="/#work"
+      class="inline-flex items-center gap-xs font-mono text-xs text-text-secondary transition-colors hover:text-accent"
+    >
+      <span aria-hidden="true">&#8249;</span>
+      back to portfolio
+    </a>
+
+    <!-- Hero -->
+    <header class="mt-lg">
+      <p class="mono-label">project / {slug}</p>
+      <h1 class="mt-xs font-display text-3xl font-semibold leading-[1.12] tracking-tight text-text-primary md:text-5xl">
+        {title}
+      </h1>
+      <p class="mt-sm max-w-2xl text-base leading-relaxed text-text-secondary md:text-lg">
+        {shortDescription}
+      </p>
+      <ul class="mt-md flex flex-wrap gap-xs">
+        {
+          techStack.map((tech) => (
+            <li class="rounded-md border border-border bg-surface px-2.5 py-1 font-mono text-xs text-text-secondary">
+              {tech}
+            </li>
+          ))
+        }
+      </ul>
+    </header>
+
+    <!-- Screenshot in a monitor frame -->
+    <figure class="mt-lg overflow-hidden rounded-lg border border-border bg-surface">
+      <figcaption class="flex items-center gap-xs border-b border-border px-sm py-xs">
+        <span class="h-2 w-2 rounded-full bg-border-strong" aria-hidden="true"></span>
+        <span class="h-2 w-2 rounded-full bg-border-strong" aria-hidden="true"></span>
+        <span class="h-2 w-2 rounded-full bg-border-strong" aria-hidden="true"></span>
+        <span class="ml-xs font-mono text-[0.7rem] text-text-secondary">{slug}.png</span>
+      </figcaption>
+      <img src={image} alt={`${title} — screenshot`} decoding="async" class="w-full" />
+    </figure>
+
+    <!-- Description -->
+    <div class="mt-lg max-w-[68ch] space-y-md">
+      {
+        description.map((paragraph) => (
+          <p class="text-base leading-relaxed text-text-secondary md:text-lg">
+            {paragraph}
+          </p>
+        ))
+      }
+    </div>
+
+    <!-- Actions -->
+    <div class="mt-xl flex flex-wrap items-center gap-sm">
+      <a
+        href={liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-[44px] items-center justify-center gap-xs rounded-md bg-accent px-md py-xs font-mono text-sm font-semibold text-background transition-colors hover:bg-accent-bright"
+      >
+        view live site
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+
+      {
+        repoUrl && (
+          <a
+            href={repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-[44px] items-center justify-center gap-xs rounded-md border border-border px-md py-xs font-mono text-sm text-text-primary transition-colors hover:border-accent hover:text-accent"
+          >
+            view repo
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
+        )
+      }
+    </div>
+  </main>
+</HomeLayout>

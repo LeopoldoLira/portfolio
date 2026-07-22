@@ -1,377 +1,306 @@
 ---
 import HomeLayout from "../layouts/HomeLayout.astro";
+import { projects } from "../data/projects";
+
+const personLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Leopoldo Lira",
+  jobTitle: "Fullstack Developer",
+  url: "https://liraleopoldo.dev",
+  sameAs: [
+    "https://www.linkedin.com/in/leopoldo-lira-b70b52116/",
+    "https://github.com/LeopoldoLira",
+  ],
+});
+
+const stack = [
+  { src: "/svgs/react.svg", label: "React" },
+  { src: "/svgs/ts.svg", label: "TypeScript" },
+  { src: "/svgs/js.svg", label: "JavaScript" },
+  { src: "/svgs/tailwind.svg", label: "Tailwind" },
+  { src: "/svgs/astro.svg", label: "Astro" },
+  { src: "/svgs/html.svg", label: "HTML" },
+  { src: "/svgs/css.svg", label: "CSS" },
+  { src: "/svgs/sass.svg", label: "Sass" },
+  { src: "/svgs/jest.svg", label: "Jest" },
+  { src: "/svgs/node.svg", label: "Node.js" },
+  { src: "/svgs/express.svg", label: "Express" },
+  { src: "/svgs/python.svg", label: "Python" },
+  { src: "/svgs/django.svg", label: "Django" },
+  { src: "/svgs/mysql.svg", label: "MySQL" },
+  { src: "/svgs/aws.svg", label: "AWS" },
+  { src: "/svgs/docker.svg", label: "Docker" },
+  { src: "/svgs/wordpress.svg", label: "WordPress" },
+  { src: "/svgs/figma.svg", label: "Figma" },
+];
+
+const featured = projects.find((p) => p.featured) ?? projects[0];
 ---
 
 <HomeLayout title="Fullstack Developer | Leopoldo Lira">
-  <main class="grid place-items-center">
-    <div class="max-w-[1600px] py-10 mobile:px-5 px-[5rem] grid grid-cols-3 mobile:grid-cols-1 sm-laptop:grid-cols-2 tablet:grid-cols-1 gap-10">
-    
-    <!-- About Container -->
-    <div id="about-container" class="observer__item bg-black/25 rounded-3xl flex justify-center flex-col px-7 tablet:py-[15rem] mobile:py-[10rem]">
-        <h1 class="italic font-medium text-white">Based in Nicaragua, delivering customizable WordPress solutions and full-stack apps with Django and React.</h1>
-        <p class="text-white font-thin">Hello 👋, I'm Leopoldo a Software Developer with 4+ Years of experience.</p>
+  <script type="application/ld+json" is:inline set:html={personLd} slot="head" />
+
+  <!-- ============ Hero ============ -->
+  <section class="relative flex min-h-dvh flex-col justify-center">
+    <div class="mx-auto w-full max-w-[1600px] px-sm pb-xl pt-2xl md:px-lg">
+      <!-- status line -->
+      <p class="flex flex-wrap items-center gap-x-sm gap-y-xs font-mono text-xs text-text-secondary">
+        <span>fullstack developer</span>
+        <span class="text-border-strong" aria-hidden="true">/</span>
+        <span>working worldwide</span>
+        <span class="text-border-strong" aria-hidden="true">/</span>
+        <span class="flex items-center gap-xs text-accent">
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+          available
+        </span>
+      </p>
+
+      <!-- headline -->
+      <h1 class="mt-md max-w-[18ch] font-display text-[clamp(1.55rem,1rem+2.6vw,2.9rem)] font-semibold leading-[1.12] tracking-[-0.01em] text-text-primary">
+        I turn product ideas into software <span class="text-accent">teams can trust</span> in production.
+      </h1>
+
+      <!-- subheadline -->
+      <p class="mt-md max-w-[62ch] text-base leading-relaxed text-text-secondary md:text-lg">
+        Over five years of production WordPress work, comfortable building across
+        Django and React and collaborating with teams around the world. Now bringing
+        that reliability to a product team.
+      </p>
+
+      <!-- CTAs -->
+      <div class="mt-lg flex flex-wrap items-center gap-sm">
+        <a
+          href="#work"
+          class="inline-flex min-h-[44px] items-center justify-center gap-xs rounded-md bg-accent px-md py-xs font-mono text-sm font-semibold text-background transition-colors hover:bg-accent-bright"
+        >
+          see my work
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </a>
+        <a
+          href="mailto:lira.leopoldo97@gmail.com"
+          class="inline-flex min-h-[44px] items-center justify-center rounded-md border border-border px-md py-xs font-mono text-sm text-text-primary transition-colors hover:border-accent hover:text-accent"
+        >
+          get in touch
+        </a>
+        <button
+          type="button"
+          data-cmdk-open
+          class="inline-flex min-h-[44px] items-center gap-xs px-xs font-mono text-xs text-text-secondary transition-colors hover:text-text-primary"
+        >
+          or press
+          <kbd class="inline-flex items-center gap-0.5 rounded border border-border-strong px-1 py-0.5 text-[0.7rem]">⌘K</kbd>
+          to jump anywhere
+        </button>
+      </div>
+
+      <!-- stack inventory -->
+      <div class="mt-2xl">
+        <p class="mono-label mb-md">stack</p>
+        <ul class="flex flex-wrap gap-x-lg gap-y-md">
+          {
+            stack.map((tech) => (
+              <li class="flex w-14 flex-col items-center gap-xs">
+                <img
+                  src={tech.src}
+                  alt={`${tech.label} logo`}
+                  width="32"
+                  height="32"
+                  loading="lazy"
+                  class="stack-icon h-8 w-8"
+                />
+                <span class="text-center font-mono text-[0.65rem] leading-tight text-text-secondary">
+                  {tech.label}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
+  </section>
 
+  <!-- ============ Work (manifest + preview monitor) ============ -->
+  <section id="work" class="scroll-mt-24 border-t border-border">
+    <div class="mx-auto w-full max-w-[1600px] px-sm py-2xl md:px-lg">
+      <header class="mb-lg flex items-baseline justify-between gap-sm">
+        <div>
+          <p class="mono-label">work</p>
+          <h2 class="mt-xs font-display text-2xl font-semibold tracking-tight text-text-primary md:text-3xl">
+            Selected work
+          </h2>
+        </div>
+        <a href="/projects" class="font-mono text-xs text-text-secondary transition-colors hover:text-accent">
+          all&nbsp;projects&nbsp;&#8250;
+        </a>
+      </header>
 
-      <!-- Frotend Skills -->
-        <div id="frontend__skills" class="observer__item bg-black/50 rounded-3xl ">
-            <div class="flex items-center justify-center">
-                <div class="grid grid-cols-3 gap-10 py-[4rem]">
-                    <div class="flex items-center justify-center">
-                      <img class='w-[3rem]' src='svgs/html.svg' alt='HTML Logo' />
-                    </div>
+      <div class="grid gap-lg lg:grid-cols-[1.35fr_1fr]">
+        <!-- Manifest -->
+        <ul id="work-manifest" class="flex flex-col">
+          {
+            projects.map((project, i) => (
+              <li>
+                <a
+                  href={`/projects/${project.slug}`}
+                  class="manifest-row group -mx-sm grid grid-cols-[auto_1fr_auto] items-center gap-sm border-t border-border px-sm py-md transition-colors last:border-b hover:bg-accent-soft"
+                  data-slug={project.slug}
+                  data-preview={project.image}
+                >
+                  <span class="manifest-index font-mono text-xs text-text-secondary">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span class="min-w-0">
+                    <span class="flex items-center gap-xs">
+                      <span class="font-display text-base font-semibold text-text-primary transition-colors group-hover:text-accent md:text-lg">
+                        {project.title}
+                      </span>
+                      {project.featured && (
+                        <span class="rounded-full bg-accent-soft px-2 py-0.5 font-mono text-[0.6rem] uppercase tracking-wider text-accent">
+                          featured
+                        </span>
+                      )}
+                    </span>
+                    <span class="mt-1 block truncate font-mono text-xs text-text-secondary">
+                      {project.techStack.join(" · ")}
+                    </span>
+                    <!-- inline thumbnail (mobile only) -->
+                    <img
+                      src={project.image}
+                      alt=""
+                      loading="lazy"
+                      class="mt-sm block aspect-[16/9] w-full rounded-md border border-border object-cover object-top lg:hidden"
+                    />
+                  </span>
+                  <span class="manifest-arrow font-mono text-text-secondary transition-all group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true">
+                    &#8250;
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
 
-                    <div class="flex items-center justify-center">
-                      <img class='w-[3rem]' src='svgs/css.svg' alt='CSS Logo' />
-                    </div>
-
-                    <div class="flex items-center justify-center">
-                      <img class='w-[3rem]' src='svgs/js.svg' alt='JavaScript Logo' />
-                    </div>
-                    <div class="flex items-center justify-center">
-                      <img class='w-[3rem]' src='svgs/jest.svg' alt='Jest Logo' />
-                    </div>
-                    <div class="flex items-center justify-center">
-                      <img class='w-[3rem]' src="/svgs/tailwind.svg" alt="Tailwind Logo" />
-                    </div>
-                    <div class="flex items-center justify-center">
-                      <img class='w-[3rem]' src="/svgs/react.svg" alt="React Logo" />
-                    </div>
-                    <div class="flex items-center justify-center">
-                      <img class='w-[3rem]' src="/svgs/astro.svg" alt="Astro Logo" />
-                    </div>
-                    <div class="flex items-center justify-center">
-                      <img class='w-[3rem]' src="/svgs/sass.svg" alt="Sas Logo" />
-                    </div>
-                    <div class="flex items-center justify-center">
-                      <img class='w-[3rem]' src='/svgs/ts.svg' width='50' height='50' alt='Typescript Logo' />
-                    </div>
-                </div>
+        <!-- Preview monitor (desktop) -->
+        <div class="hidden lg:block">
+          <div id="work-preview" class="work-preview sticky top-24 overflow-hidden rounded-lg border border-border bg-surface">
+            <div class="flex items-center gap-xs border-b border-border px-sm py-xs">
+              <span class="h-2 w-2 rounded-full bg-border-strong" aria-hidden="true"></span>
+              <span class="h-2 w-2 rounded-full bg-border-strong" aria-hidden="true"></span>
+              <span class="h-2 w-2 rounded-full bg-border-strong" aria-hidden="true"></span>
+              <span id="work-preview-name" class="ml-xs font-mono text-[0.7rem] text-text-secondary">{featured.slug}.png</span>
             </div>
+            <div class="work-preview__stage relative aspect-[16/10]">
+              {
+                projects.map((project) => (
+                  <img
+                    class:list={["work-preview__img absolute inset-0 h-full w-full object-cover object-top", project.slug === featured.slug && "is-active"]}
+                    data-slug={project.slug}
+                    src={project.image}
+                    alt=""
+                    loading="lazy"
+                  />
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ About ============ -->
+  <section id="about" class="scroll-mt-24 border-t border-border">
+    <div class="mx-auto w-full max-w-[1600px] px-sm py-2xl md:px-lg">
+      <div class="grid grid-cols-1 gap-lg md:grid-cols-[1fr_1.4fr] md:gap-2xl">
+        <div>
+          <p class="mono-label">about</p>
+          <h2 class="mt-xs font-display text-2xl font-semibold tracking-tight text-text-primary md:text-3xl">
+            The short version
+          </h2>
         </div>
 
-        <!-- Backend Skills -->
-        <div id="backend__skills"  class="observer__item bg-white/[0.9] rounded-3xl flex items-center justify-center">
-            <div class="">
-              <div class="grid grid-cols-3 gap-10 py-10">
-                  <div class="flex items-center justify-center">
-                    <img class='w-[3rem]' src='/svgs/python.svg' alt='Python programming language logo' />
-                  </div>
+        <div class="max-w-[68ch]">
+          <div class="space-y-md text-base leading-relaxed text-text-secondary md:text-lg">
+            <p>
+              I'm Leopoldo, a fullstack developer. For the last five years I've
+              shipped production WordPress work for clients and teams around the
+              world, from brand sites to law firms to content platforms, and I build
+              comfortably across Django and React too. Wherever the work comes from,
+              I hold it to a global standard.
+            </p>
+            <p>
+              I care about software that holds up: interfaces that stay clear as
+              they grow, backends that don't surprise you at 2am, and code the next
+              person can actually read. What I like most is being the person a team
+              can hand an ambiguous problem to and trust it comes back solid.
+            </p>
+          </div>
 
-                  <div class="flex items-center justify-center">
-                    <img class='w-[3rem]' src='/svgs/django.svg' alt='django programming language logo' />
-                  </div>
-
-                  <div class="flex items-center justify-center">
-                    <img class='w-[3rem]' src='/svgs/wordpress.svg' alt='WordPress CMS Logo' />
-                  </div>
-                  <div class="flex items-center justify-center">
-                    <img class='w-[3rem]' src='/svgs/mysql.svg' alt='My SQL Logo' />
-                   
-                  </div>
-                  <div class="flex items-center justify-center">
-                    <img class='w-[3rem]' src='/svgs/auth.svg' alt='JSON Web Token Logo' />
-                  </div>
-                  <div class="flex items-center justify-center">
-                    <img class='w-[3rem]' src='/svgs/aws.svg' alt='AWS Logo' />
-                  </div>
-                  <div class="flex items-center justify-center">
-                    <img class='w-[3rem]' src='/svgs/docker.svg' alt='Docker Logo' />
-                  </div>
-                  <div class="flex items-center justify-center">
-                    <img class='w-[3rem]' src='/svgs/node.svg' alt='Node JS Logo' />
-                  </div>
-                  <div class="flex items-center justify-center">
-                    <img class='w-[3rem]' src='/svgs/express.svg' alt='Express JS Logo' />
-                  </div>
-              </div>
+          <div class="mt-lg">
+            <p class="mono-label mb-sm">currently</p>
+            <ul class="space-y-sm">
+              {
+                [
+                  "Shipping with Next.js 15 and the App Router",
+                  "Building a personal finance insights app",
+                  "Confident delivering products on any stack",
+                  "Open to fullstack and frontend roles at product teams",
+                ].map((item) => (
+                  <li class="flex gap-sm">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                    <span class="text-text-secondary">{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
           </div>
         </div>
-        
-
-          <!-- Movienies Project Container -->
-          <section id="project__movienies" class="observer__item bg-black/25 flex flex-col gap-5 rounded-3xl">
-            <img class="rounded-t-3xl" src='imgs/movienies.jpg' alt='Movinies APP' />
-            <div class="px-5 sm-laptop:py-5 tablet:py-5 mobile:py-5 flex flex-col gap-5">
-              <h2 class="text-white font-bold text-3xl">Movienies.</h2>
-              <div class="flex gap-2">
-                <img class="w-[40px]" alt='React Logo' src='/svgs/react.svg' />
-                <img class="w-[40px]" alt='Django Logo' src='/svgs/django.svg' />
-                <img class="w-[40px]" alt='Tailwind Logo' src='/svgs/tailwind.svg' />
-                <img class="w-[40px]" alt='AWS Logo' src='/svgs/aws.svg' />
-              </div>
-              <p class="text-gray-300">Movienes. is an App where you can create an Account and start Comment and Rate different movies.</p>
-              <a target="_blank" href="https://movienies.netlify.app" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Go to Project
-                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </a>
-            </div>
-          </section>
-
-
-
-          <section id="project__content" class="observer__item bg-black/25 flex flex-col gap-5 rounded-3xl">
-            <img class="rounded-t-3xl" src='imgs/contentw.jpg' alt='Content Writers App' />
-            <div class="px-5 flex flex-col tablet:py-5 mobile:py-5 gap-5 ">
-              <h2 class="text-white font-bold text-3xl ">Content Writers</h2>
-              <div class="flex gap-2">
-                <img class="w-[40px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
-                <img class="w-[40px]" alt="SASS Logo" src='/svgs/sass.svg' />
-                <img class="w-[40px]" alt="Figma Logo" src='/svgs/figma.svg' />
-              </div>
-              <p class="text-gray-300">24/7 Content Writers is a page that offers SEO Services. Built with WordPress and Fully customizable with ACF.</p>
-              <a target='_blank' href="https://247contentwriters.infinityfreeapp.com/" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Go to Project
-                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </a>
-            </div>
-          </section>
-
-          <section id="project__greenberg" class="observer__item bg-black/25 rounded-3xl">
-            <img class="rounded-t-3xl" src='imgs/greenberg.jpg' alt='Movinies APP' />
-            <div class="p-5 flex flex-col gap-5">
-              <h2 class="text-white font-bold text-3xl ">Greenberg & Stein</h2>
-              <div class="flex gap-2">
-                <img class="w-[40px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
-                <img class="w-[40px]" alt="Figma Logo" src='/svgs/figma.svg' />
-                <img class="w-[40px]" alt="SASS Logo" src='/svgs/sass.svg' />
-              </div>
-              <p class="text-gray-300">Greenberg & Stein is a well known Legal firm that offers Legal services. Built with WordPress and Fully customizable with ACF.</p>
-              <a target='_blank' href="https://greenbergandstein.com/" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Go to Project
-                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </a>
-            </div>
-          </section>
-
-          <div id="project__clothongboutique" class="observer__item bg-black/25 w-full rounded-3xl ">
-            <img class="rounded-t-3xl" src='imgs/clothing.png' alt='Image of Clothing Boutique landing page' />
-            <div class="p-5 flex flex-col gap-5 ">
-              <h2 class="text-white font-bold text-3xl">ClothingBoutique</h2>
-              <div class="flex gap-2">
-                <img class="w-[40px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
-                <img class="w-[40px]" alt="SASS Logo" src='/svgs/sass.svg' />
-              </div>
-              <p class="text-gray-300">A stylish WordPress site crafted to highlight the latest clothing collections. With custom designs, an interactive product catalog, and user-friendly functionality.</p>
-              <a target='_blank' href="https://clothingboutique.infinityfreeapp.com/" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Go to Project
-                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div id="project__multiservices" class="observer__item bg-black/25 w-full rounded-3xl">
-            <img class="rounded-t-3xl" src='imgs/multiservices.png' alt='Movinies APP' />
-            <div class="p-5 flex flex-col gap-5">
-              <h2 class="text-white font-bold text-3xl ">Multiservices</h2>
-              <div class="flex gap-2">
-                <img class="w-[40px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
-                <img class="w-[40px]" alt="SASS Logo" src='/svgs/sass.svg' />
-              </div>
-              <p class="text-gray-300">A custom WordPress website designed to showcase and manage IT services and products. Built for seamless user experience, it features intuitive navigation and a tailored catalog.</p>
-              <a target='_blank' href="https://multiservices.infinityfreeapp.com/" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Go to Project
-                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-
-          <div id="project__sabiocoffee" class="observer__item bg-black/25 w-full rounded-3xl">
-            <img class="rounded-t-3xl" src='imgs/sabio_coffee.png' alt='Sabio Coffee Web Page' />
-            <div class="p-5 flex flex-col gap-5">
-              <h2 class="text-white font-bold text-3xl ">Sabio Coffee</h2>
-              <div class="flex gap-2">
-                <img class="w-[40px]" alt="WordPress Logo" src='/svgs/wordpress.svg' />
-                <img class="w-[40px]" alt="SASS Logo" src='/svgs/sass.svg' />
-              </div>
-              <p class="text-gray-300">Built a custom WordPress site using ACF for dynamic content and SASS for responsive styling, delivering a scalable, client-friendly platform with a modern design.</p>
-              <a target='_blank' href="https://sabio.coffee/" class="flex items-center justify-center py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Go to Project
-                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-          
-
-
-      
-
-          <!-- Contact Container -->
-          <div id="contact" class="observer__item bg-black/50  rounded-3xl">
-            <a href='mailto:lira.leopoldo97@gmail.com'>
-              <div class="flex items-center justify-center items-center py-[5rem]">
-                <img class='w-50' src='/svgs/contact.svg' alt='Email Contact Logo' />
-              </div>
-            </a>  
-          </div>
-
-          <!-- Linkedin Icon Container -->
-          
-          <div id="linkedin" class="observer__item  bg-[#0e76a8] rounded-3xl">
-            <a target="_blank" href='https://www.linkedin.com/in/leopoldo-lira-b70b52116/'>
-              <div class="flex items-center justify-center items-center py-[5rem]">
-                <img class='w-50' src='/svgs/linkedin.svg' alt="Linkedin Logo" />
-              </div>
-            </a>  
-          </div>
-
-          <!-- Github Container -->
-          <div id="github" class="observer__item bg-black/70 rounded-3xl">
-            <a target="_blank" href='https://github.com/LeopoldoLira'>
-              <div id="github-blend" class="flex items-center justify-center h-full">
-                <img class='transition ease-in-out hover:scale-[1.1] mobile-l:w-[150px] smallLaptop:w-[150px] 4k:w-[250px]' src='/svgs/github.svg' alt='Github Logo' />
-              </div>
-            </a>
-          </div>
-
-          <!-- <div id="catgif" class="observer__item rounded-3xl tablet:py-[15rem] mobile:py-[10rem]">
-            <a target="_blank" href='https://www.linkedin.com/in/leopoldo-lira-b70b52116/'>
-              <div class="flex items-center justify-center items-center ">
-              </div>
-            </a>  
-          </div> -->
-         
+      </div>
     </div>
-  </main>
+  </section>
 </HomeLayout>
 
-
 <style>
-
-
-
-
-#about-container{
-  background-image: url('/imgs/leo.png');
-  background-size: 30%;
-  background-repeat: no-repeat;
-  background-position-x: 0%;
-  background-position-y: 120%;
-  transition: opacity 300ms ease-in-out;
-
-}
-
-#frontend__skills{
-  transition: opacity 700ms ease-in-out;
-}
-#backend__skills{
-  transition: opacity 1500ms ease-in-out;
-}
-
-#project__movienies{
-  transition: opacity 700ms ease-in-out, scale 200ms ease-in-out;
-}
-#project__content{
-  transition: opacity 1500ms ease-in-out, scale 200ms ease-in-out;
-}
-
-#project__greenberg{
-  transition: opacity 300ms ease-in-out, scale 200ms ease-in-out;
-}
-
-#github{
-  transition: opacity 700ms ease-in-out, scale 200ms ease-in-out;
-}
-
-#contact{
-  transition: opacity 1500ms ease-in-out, scale 200ms ease-in-out;
-}
-
-
-#linkedin{
-  transition: opacity 2000ms ease-in-out, scale 200ms ease-in-out;
-}
-
-#catgif{
-  background-image: url('/imgs/cat-typing.gif');
-  background-position: center;
-  background-size: cover;
-}
-
- 
-#contact:hover, 
-#linkedin:hover{
-  box-shadow: 0px 0px 2px 1px rgba(255,255,255, 1);
-  scale: 1.01;
-}
-
-#project__movienies:hover, 
-#project__content:hover, 
-#project__greenberg:hover, 
-#github:hover{
-  box-shadow: 0px 0px 2px 1px rgba(255,255,255, 1);
-  scale: 1.01;
-}
-
-.observer__item{
-  opacity: 0;
-}
-
-@media (min-width:1px) and (max-width:425px){
-  #about-container{
-    background-size: 50%;
-    background-position-x: 100%;
-    background-position-y: 105%;
+  /* Stack: uniform monochrome logos in one soft off-white tone. The filter
+     normalizes every SVG (fills or currentColor) to a single color, so the
+     mixed dark/bright brand colors no longer matter on the dark background. */
+  .stack-icon {
+    filter: brightness(0) invert(0.85);
   }
-}
 
-
-@media (min-width:426px) and (max-width:768px){
-  #about-container{
-    background-size: 50%;
+  /* Work preview monitor: crossfade images driven by .is-active */
+  .work-preview__img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
-}
-
-
-
-@media (min-width:769px) and (max-width:1024px){
-  #about-container{
-    background-size: 40%;
+  .work-preview__img.is-active {
+    opacity: 1;
   }
-}
-
-@media (min-width:1025px) and (min-width:2560px){
-  #about-container{
-    background-size: 50%;
-  }
-}
-
 </style>
 
 <script>
-  const observerItems = document.querySelectorAll('.observer__item');
+  function initWork() {
+    const rows = document.querySelectorAll<HTMLElement>("#work-manifest .manifest-row");
+    const imgs = document.querySelectorAll<HTMLElement>(".work-preview__img");
+    const nameEl = document.getElementById("work-preview-name");
+    if (rows.length === 0 || imgs.length === 0) return;
 
-const options = {
-  root:null,
-  rootMargin:'0px',
-  threshold:0.5
-}
+    const activate = (slug: string) => {
+      imgs.forEach((img) => img.classList.toggle("is-active", img.dataset.slug === slug));
+      if (nameEl) nameEl.textContent = `${slug}.png`;
+    };
 
-function handleIntersection(entries, observer){
-  entries.forEach(entry =>{
-    if (entry.isIntersecting){
-      entry.target.style.opacity = 1;
-      observer.unobserve(entry.target)
-    }
-  })
-}
+    rows.forEach((row) => {
+      const slug = row.dataset.slug;
+      if (!slug) return;
+      row.addEventListener("mouseenter", () => activate(slug));
+      row.addEventListener("focus", () => activate(slug));
+    });
+  }
 
-const observer = new IntersectionObserver(handleIntersection, options);
-
-observerItems.forEach(item =>{
-  observer.observe(item)
-})
+  document.addEventListener("astro:page-load", initWork);
 </script>

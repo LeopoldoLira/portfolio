@@ -1,0 +1,128 @@
+/* ============================================================
+   "Console" design tokens — warm near-black + amber phosphor
+   Color method: OKLCH. Type: Martian Mono (machine) + Hanken
+   Grotesk (human). Mirrors tailwind.config.cjs.
+   ============================================================ */
+:root {
+  /* Surfaces — warm near-black, tinted toward the amber hue (not slate) */
+  --color-background: oklch(0.16 0.008 75);
+  --color-surface: oklch(0.2 0.009 75);
+  --color-surface-2: oklch(0.245 0.01 75);
+  --color-border: oklch(0.31 0.012 75);
+  --color-border-strong: oklch(0.42 0.014 75);
+
+  /* Ink */
+  --color-text-primary: oklch(0.96 0.008 85);
+  --color-text-secondary: oklch(0.72 0.014 80);
+
+  /* Signal — amber phosphor, the one committed accent */
+  --color-accent: oklch(0.8 0.135 72);
+  --color-accent-bright: oklch(0.87 0.145 78);
+  --color-accent-soft: color-mix(in oklch, var(--color-accent) 14%, transparent);
+  --color-accent-line: color-mix(in oklch, var(--color-accent) 32%, transparent);
+
+  /* Spacing scale (t-shirt) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Type */
+  --font-display: "Martian Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-mono: "Martian Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  /* Semantic z-index scale */
+  --z-nav: 40;
+  --z-overlay: 60;
+  --z-palette: 80;
+}
+
+/* ============================================================
+   Base reset
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  /* Light-on-dark compensation: looser leading + a touch of tracking */
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+/* Display / machine voice */
+h1, h2, h3, h4, h5, h6,
+.font-display {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+/* Monospace metadata helpers */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Accessibility
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: oklch(0.16 0.008 75);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

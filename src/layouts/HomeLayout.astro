@@ -1,36 +1,617 @@
 ---
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
 }
 import { ViewTransitions } from "astro:transitions";
+import "../styles/global.css";
+import { projects } from "../data/projects";
 
-const { title } = Astro.props;
+const DEFAULT_DESCRIPTION =
+  "Leopoldo Lira is a fullstack developer in Nicaragua with 5+ years building WordPress, Django, and React projects. Available for frontend and fullstack roles at product teams.";
+
+const {
+  title,
+  description = DEFAULT_DESCRIPTION,
+  image = "/imgs/leo.png",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImage = new URL(image, Astro.site);
+
+const navLinks = [
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
+];
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Fullstack Developer Leopoldo Lira: With 3+ years of experience, I craft innovate solutions for seamless digital experiences. Let's turn ideas into reality! 👨‍💻🚀" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="canonical" href="https://liraleopoldo.dev" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={socialImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
+    <!-- Fonts: Martian Mono (machine) + Hanken Grotesk (human) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600;700&display=swap"
+    />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
+    <slot name="head" />
   </head>
-  <body class="bg-[#181a29]">
-    <slot />
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- ============ Header / console bar ============ -->
+    <header id="site-header" class="site-header fixed inset-x-0 top-0 z-nav">
+      <nav
+        class="mx-auto flex max-w-[1600px] items-center justify-between px-sm py-xs md:px-lg"
+        aria-label="Primary"
+      >
+        <!-- Wordmark: shell prompt -->
+        <a href="/" class="group flex items-center gap-xs font-mono text-sm text-text-primary">
+          <span class="text-accent" aria-hidden="true">&#10095;</span>
+          <span class="tracking-tight">leopoldo lira</span>
+          <span class="caret" aria-hidden="true"></span>
+        </a>
+
+        <div class="flex items-center gap-sm md:gap-md">
+          <!-- Desktop links -->
+          <ul class="hidden items-center gap-md md:flex">
+            {
+              navLinks.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="font-mono text-xs text-text-secondary transition-colors hover:text-text-primary"
+                  >
+                    {link.label.toLowerCase()}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+
+          <!-- Command palette trigger -->
+          <button
+            type="button"
+            data-cmdk-open
+            class="cmdk-trigger group flex items-center gap-xs rounded-md border border-border bg-surface px-xs py-1.5 font-mono text-xs text-text-secondary transition-colors hover:border-border-strong hover:text-text-primary"
+            aria-label="Open command menu"
+          >
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span class="hidden sm:inline">jump to…</span>
+            <kbd class="hidden items-center gap-0.5 rounded border border-border-strong px-1 text-[0.65rem] text-text-secondary sm:inline-flex">
+              <span class="cmdk-key">⌘</span>K
+            </kbd>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ============ Command palette ============ -->
+    <dialog id="cmdk" class="cmdk" aria-label="Command menu">
+      <div class="cmdk__panel">
+        <div class="cmdk__search">
+          <svg class="h-4 w-4 shrink-0 text-text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            id="cmdk-input"
+            type="text"
+            role="combobox"
+            aria-expanded="true"
+            aria-controls="cmdk-list"
+            aria-autocomplete="list"
+            aria-label="Search commands"
+            placeholder="Search or jump to…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <kbd class="cmdk__esc">esc</kbd>
+        </div>
+
+        <ul id="cmdk-list" class="cmdk__list" role="listbox" aria-label="Commands">
+          <li class="cmdk__group" role="presentation">navigate</li>
+          <li role="presentation">
+            <a class="cmdk__item" role="option" id="cmd-home" href="/" data-keywords="home top start">
+              <span class="cmdk__glyph" aria-hidden="true">&#8962;</span>
+              <span class="cmdk__label">Home</span>
+            </a>
+          </li>
+          {
+            navLinks.map((link) => (
+              <li role="presentation">
+                <a class="cmdk__item" role="option" href={link.href} data-keywords={link.label.toLowerCase()}>
+                  <span class="cmdk__glyph" aria-hidden="true">&#8250;</span>
+                  <span class="cmdk__label">{link.label}</span>
+                </a>
+              </li>
+            ))
+          }
+
+          <li class="cmdk__group" role="presentation">projects</li>
+          {
+            projects.map((project) => (
+              <li role="presentation">
+                <a
+                  class="cmdk__item"
+                  role="option"
+                  href={`/projects/${project.slug}`}
+                  data-keywords={`${project.title} ${project.techStack.join(" ")}`.toLowerCase()}
+                >
+                  <span class="cmdk__glyph" aria-hidden="true">&#9656;</span>
+                  <span class="cmdk__label">{project.title}</span>
+                  <span class="cmdk__meta">{project.techStack.slice(0, 2).join(" · ")}</span>
+                </a>
+              </li>
+            ))
+          }
+
+          <li class="cmdk__group" role="presentation">actions</li>
+          <li role="presentation">
+            <button class="cmdk__item" role="option" type="button" data-copy="lira.leopoldo97@gmail.com" data-keywords="copy email address">
+              <span class="cmdk__glyph" aria-hidden="true">&#9113;</span>
+              <span class="cmdk__label">Copy email</span>
+              <span class="cmdk__meta">lira.leopoldo97@gmail.com</span>
+            </button>
+          </li>
+          <li role="presentation">
+            <a class="cmdk__item" role="option" href="mailto:lira.leopoldo97@gmail.com" data-keywords="email contact write mail">
+              <span class="cmdk__glyph" aria-hidden="true">&#9993;</span>
+              <span class="cmdk__label">Send email</span>
+            </a>
+          </li>
+          <li role="presentation">
+            <a class="cmdk__item" role="option" href="https://github.com/LeopoldoLira" target="_blank" rel="noopener noreferrer" data-keywords="github code repos source">
+              <span class="cmdk__glyph" aria-hidden="true">&#9741;</span>
+              <span class="cmdk__label">GitHub</span>
+              <span class="cmdk__meta">↗</span>
+            </a>
+          </li>
+          <li role="presentation">
+            <a class="cmdk__item" role="option" href="https://www.linkedin.com/in/leopoldo-lira-b70b52116/" target="_blank" rel="noopener noreferrer" data-keywords="linkedin profile network hire">
+              <span class="cmdk__glyph" aria-hidden="true">&#9741;</span>
+              <span class="cmdk__label">LinkedIn</span>
+              <span class="cmdk__meta">↗</span>
+            </a>
+          </li>
+
+          <li id="cmdk-empty" class="cmdk__empty" role="presentation" hidden>No matches</li>
+        </ul>
+
+        <div class="cmdk__foot" aria-hidden="true">
+          <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+          <span><kbd>↵</kbd> select</span>
+          <span><kbd>esc</kbd> close</span>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- ============ Page content ============ -->
+    <div id="main">
+      <slot />
+    </div>
+
+    <!-- ============ Footer status bar ============ -->
+    <footer id="contact" class="scroll-mt-24 border-t border-border">
+      <div class="mx-auto max-w-[1600px] px-sm py-xl md:px-lg">
+        <div class="flex flex-col gap-lg md:flex-row md:items-end md:justify-between">
+          <div class="flex max-w-xl flex-col gap-sm">
+            <span class="mono-label">contact</span>
+            <h2 class="font-display text-xl font-semibold leading-[1.15] tracking-tight text-text-primary md:text-2xl">
+              Have a product to build or a team to grow? Let's talk.
+            </h2>
+            <p class="text-sm leading-relaxed text-text-secondary md:text-base">
+              Whether you're hiring for a product team or have a project in mind, I'd
+              like to hear what you're working on. Send a note with the details and
+              I'll get back to you quickly.
+            </p>
+            <a
+              href="mailto:lira.leopoldo97@gmail.com"
+              class="group mt-xs inline-flex w-fit items-center gap-xs font-display text-base text-accent transition-colors hover:text-accent-bright md:text-lg"
+            >
+              lira.leopoldo97@gmail.com
+              <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Social -->
+          <div class="flex items-center gap-xs">
+            <a href="mailto:lira.leopoldo97@gmail.com" class="social-btn" aria-label="Email Leopoldo Lira">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/leopoldo-lira-b70b52116/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Leopoldo Lira on LinkedIn">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+              </svg>
+            </a>
+            <a href="https://github.com/LeopoldoLira" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Leopoldo Lira on GitHub">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- status bar -->
+        <div class="statusbar mt-lg flex flex-wrap items-center gap-x-md gap-y-xs border-t border-border pt-sm font-mono text-[0.7rem] text-text-secondary">
+          <span>leopoldo lira &copy; 2026</span>
+          <span class="statusbar__sep" aria-hidden="true">/</span>
+          <span class="tabular-nums">managua · 12.1150&deg; N 86.2362&deg; W</span>
+          <span class="statusbar__sep" aria-hidden="true">/</span>
+          <span class="flex items-center gap-xs">
+            <span class="status-dot" aria-hidden="true"></span>
+            available for work
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .skip-link {
+        position: fixed;
+        top: 0.5rem;
+        left: 0.5rem;
+        z-index: 100;
+        transform: translateY(-150%);
+        background: var(--color-accent);
+        color: var(--color-background);
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.375rem;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        transition: transform 0.2s ease;
+      }
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      /* Console bar: transparent over hero, blurred surface on scroll */
+      .site-header {
+        border-bottom: 1px solid transparent;
+        transition:
+          background-color 0.3s ease,
+          border-color 0.3s ease,
+          backdrop-filter 0.3s ease;
+      }
+      .site-header.is-scrolled {
+        background-color: color-mix(in oklch, var(--color-background) 78%, transparent);
+        border-bottom-color: var(--color-border);
+        backdrop-filter: blur(14px) saturate(1.2);
+        -webkit-backdrop-filter: blur(14px) saturate(1.2);
+      }
+
+      /* Blinking prompt caret in the wordmark */
+      .caret {
+        width: 0.5rem;
+        height: 1rem;
+        background: var(--color-accent);
+        display: inline-block;
+        animation: blink 1.15s steps(1) infinite;
+      }
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        50.01%, 100% { opacity: 0; }
+      }
+
+      .social-btn {
+        display: flex;
+        height: 2.75rem;
+        width: 2.75rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        color: var(--color-text-secondary);
+        transition: color 0.2s ease, background-color 0.2s ease;
+      }
+      .social-btn:hover {
+        color: var(--color-accent);
+        background: var(--color-accent-soft);
+      }
+
+      .statusbar__sep { color: var(--color-border-strong); }
+      .status-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 999px;
+        background: var(--color-accent);
+        box-shadow: 0 0 0 0 var(--color-accent-line);
+        animation: pulse 2.4s ease-out infinite;
+      }
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 var(--color-accent-soft); }
+        70% { box-shadow: 0 0 0 6px transparent; }
+        100% { box-shadow: 0 0 0 0 transparent; }
+      }
+
+      /* ---------- Command palette ---------- */
+      .cmdk {
+        margin: 0 auto;
+        margin-top: 12vh;
+        width: min(92vw, 40rem);
+        max-height: 70vh;
+        padding: 0;
+        border: 1px solid var(--color-border-strong);
+        border-radius: 0.875rem;
+        background: var(--color-surface-2);
+        color: var(--color-text-primary);
+        box-shadow: 0 32px 80px -24px rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+      }
+      .cmdk::backdrop {
+        background: color-mix(in oklch, var(--color-background) 55%, transparent);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+      }
+      /* Entry animation */
+      .cmdk[open] {
+        animation: cmdk-in 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      @keyframes cmdk-in {
+        from { opacity: 0; transform: translateY(-6px) scale(0.985); }
+        to { opacity: 1; transform: none; }
+      }
+
+      .cmdk__panel { display: flex; flex-direction: column; max-height: 70vh; }
+
+      .cmdk__search {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        padding: 0.875rem 1rem;
+        border-bottom: 1px solid var(--color-border);
+      }
+      .cmdk__search input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--color-text-primary);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        letter-spacing: 0;
+      }
+      .cmdk__search input::placeholder { color: var(--color-text-secondary); }
+      .cmdk__esc,
+      .cmdk__foot kbd {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--color-text-secondary);
+        border: 1px solid var(--color-border-strong);
+        border-radius: 0.25rem;
+        padding: 0.05rem 0.35rem;
+      }
+
+      .cmdk__list {
+        list-style: none;
+        margin: 0;
+        padding: 0.375rem;
+        overflow-y: auto;
+        flex: 1;
+      }
+      .cmdk__group {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-text-secondary);
+        padding: 0.75rem 0.625rem 0.35rem;
+      }
+      .cmdk__item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+        text-align: left;
+        padding: 0.6rem 0.625rem;
+        border-radius: 0.5rem;
+        color: var(--color-text-primary);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-family: var(--font-body);
+      }
+      .cmdk__glyph {
+        font-family: var(--font-mono);
+        color: var(--color-text-secondary);
+        width: 1rem;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+      .cmdk__label { flex: 1; }
+      .cmdk__meta {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--color-text-secondary);
+      }
+      .cmdk__item.is-active {
+        background: var(--color-accent-soft);
+      }
+      .cmdk__item.is-active .cmdk__glyph { color: var(--color-accent); }
+      .cmdk__empty {
+        padding: 1.5rem 0.625rem;
+        text-align: center;
+        color: var(--color-text-secondary);
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+      }
+      .cmdk__foot {
+        display: flex;
+        gap: 1rem;
+        padding: 0.625rem 1rem;
+        border-top: 1px solid var(--color-border);
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--color-text-secondary);
+      }
+      .cmdk__foot span { display: inline-flex; align-items: center; gap: 0.3rem; }
+    </style>
+
+    <script>
+      let scrollBound = false;
+
+      function initChrome() {
+        const header = document.getElementById("site-header");
+        const dialog = document.getElementById("cmdk") as HTMLDialogElement | null;
+        const input = document.getElementById("cmdk-input") as HTMLInputElement | null;
+        const list = document.getElementById("cmdk-list");
+        const empty = document.getElementById("cmdk-empty");
+        const openers = document.querySelectorAll("[data-cmdk-open]");
+
+        // Backdrop-blur on scroll
+        const applyScrollState = () => {
+          if (header) header.classList.toggle("is-scrolled", window.scrollY > 24);
+        };
+        applyScrollState();
+        if (!scrollBound) {
+          scrollBound = true;
+          window.addEventListener("scroll", applyScrollState, { passive: true });
+        }
+
+        if (!dialog || !input || !list) return;
+
+        const items = Array.from(list.querySelectorAll<HTMLElement>(".cmdk__item"));
+        let activeIndex = 0;
+
+        const visibleItems = () => items.filter((el) => !el.hidden && !el.closest("li")?.hidden);
+
+        const setActive = (i: number) => {
+          const vis = visibleItems();
+          if (vis.length === 0) return;
+          activeIndex = (i + vis.length) % vis.length;
+          items.forEach((el) => el.classList.remove("is-active"));
+          const el = vis[activeIndex];
+          el.classList.add("is-active");
+          if (el.id) input.setAttribute("aria-activedescendant", el.id);
+          el.scrollIntoView({ block: "nearest" });
+        };
+
+        const filter = (q: string) => {
+          const query = q.trim().toLowerCase();
+          items.forEach((el) => {
+            const hay = ((el.dataset.keywords || "") + " " + (el.textContent || "")).toLowerCase();
+            const match = query === "" || query.split(/\s+/).every((t) => hay.includes(t));
+            const li = el.closest("li");
+            if (li) li.hidden = !match;
+            el.hidden = !match;
+          });
+          // hide group headers with no following visible items
+          list.querySelectorAll<HTMLElement>(".cmdk__group").forEach((g) => {
+            let node = g.nextElementSibling as HTMLElement | null;
+            let hasVisible = false;
+            while (node && !node.classList.contains("cmdk__group")) {
+              if (!node.hidden && node.querySelector(".cmdk__item")) { hasVisible = true; break; }
+              node = node.nextElementSibling as HTMLElement | null;
+            }
+            g.hidden = !hasVisible;
+          });
+          if (empty) empty.hidden = visibleItems().length > 0;
+          setActive(0);
+        };
+
+        const open = () => {
+          if (dialog.open) return;
+          dialog.showModal();
+          input.value = "";
+          filter("");
+          requestAnimationFrame(() => input.focus());
+        };
+        const close = () => dialog.open && dialog.close();
+
+        openers.forEach((btn) => btn.addEventListener("click", open));
+
+        input.addEventListener("input", () => filter(input.value));
+
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowDown") { e.preventDefault(); setActive(activeIndex + 1); }
+          else if (e.key === "ArrowUp") { e.preventDefault(); setActive(activeIndex - 1); }
+          else if (e.key === "Enter") {
+            e.preventDefault();
+            const el = visibleItems()[activeIndex];
+            if (el) el.click();
+          }
+        });
+
+        // Pointer hover updates active item
+        items.forEach((el, idx) => {
+          el.addEventListener("mousemove", () => {
+            const vis = visibleItems();
+            const vi = vis.indexOf(el);
+            if (vi >= 0 && vi !== activeIndex) setActive(vi);
+          });
+          el.addEventListener("click", (e) => {
+            const copy = el.dataset.copy;
+            if (copy) {
+              e.preventDefault();
+              navigator.clipboard?.writeText(copy);
+              const label = el.querySelector(".cmdk__label");
+              if (label) {
+                const prev = label.textContent;
+                label.textContent = "Copied to clipboard";
+                setTimeout(() => { label.textContent = prev; close(); }, 700);
+              } else close();
+              return;
+            }
+            // let links navigate, then close
+            close();
+          });
+        });
+
+        // Global shortcut: Cmd/Ctrl+K toggles
+        if (!(window as any).__cmdkBound) {
+          (window as any).__cmdkBound = true;
+          document.addEventListener("keydown", (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+              e.preventDefault();
+              const dlg = document.getElementById("cmdk") as HTMLDialogElement | null;
+              if (dlg?.open) dlg.close();
+              else (document.querySelector("[data-cmdk-open]") as HTMLElement | null)?.click();
+            }
+          });
+        }
+      }
+
+      document.addEventListener("astro:page-load", initChrome);
+    </script>
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: "NotoSans";
-    src: url("/fonts/NotoSans-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
-  html {
-    font-family: system-ui, sans-serif;
-  }
-</style>
